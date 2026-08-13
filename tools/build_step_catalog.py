@@ -13,6 +13,7 @@ import html
 import json
 import os
 import shutil
+import subprocess
 import sys
 import tempfile
 from datetime import datetime, timezone
@@ -22,6 +23,7 @@ from urllib.parse import quote
 
 STEP_EXTENSIONS = {".step", ".stp"}
 FOOTPRINT_EXTENSION = ".kicad_mod"
+SYMBOL_EXTENSION = ".kicad_sym"
 
 
 def web_path(path: Path) -> str:
@@ -85,18 +87,72 @@ def normalised_name(path: Path) -> str:
     return "".join(character for character in path.stem.upper() if character.isalnum()).removeprefix("MODULE")
 
 
-def component_footprints(step: Path, footprints: list[Path]) -> list[Path]:
+def component_assets(step: Path, assets: list[Path]) -> list[Path]:
     """Associate explicit name matches first, otherwise use the closest folder."""
     step_name = normalised_name(step)
-    named = [footprint for footprint in footprints if normalised_name(footprint) == step_name]
+    named = [asset for asset in assets if normalised_name(asset) == step_name]
     if named:
         return named
 
-    def shared_depth(footprint: Path) -> int:
-        return len(Path(os.path.commonpath((step.parent, footprint.parent))).parts)
+    def shared_depth(asset: Path) -> int:
+        return len(Path(os.path.commonpath((step.parent, asset.parent))).parts)
 
-    best = max((shared_depth(footprint) for footprint in footprints), default=0)
-    return [footprint for footprint in footprints if best and shared_depth(footprint) == best]
+    best = max((shared_depth(asset) for asset in assets), default=0)
+    return [asset for asset in assets if best and shared_depth(asset) == best]
+
+
+def run_kicad(command: list[str]) -> Path:
+    """Run KiCad's SVG exporter and return its generated SVG file."""
+    if not shutil.which("kicad-cli"):
+        raise RuntimeError("kicad-cli no está instalado")
+    result = subprocess.run(command, text=True, capture_output=True)
+    if result.returncode:
+        message = result.stderr.strip() or result.stdout.strip() or "KiCad no pudo crear el SVG"
+        raise RuntimeError(message)
+    output = Path(command[command.index("--output") + 1])
+    svg_files = sorted(output.rglob("*.svg"))
+    if not svg_files:
+        raise RuntimeError("KiCad terminó sin generar un SVG")
+    return svg_files[0]
+
+
+def render_symbol(source: Path, target: Path) -> None:
+    """Create an SVG preview from a KiCad symbol library."""
+    with tempfile.TemporaryDirectory(prefix="symbol-render-") as temporary:
+        generated = Path(temporary) / "generated"
+        generated.mkdir()
+        svg = run_kicad(["kicad-cli", "sym", "export", "svg", "--output", str(generated), str(source)])
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(svg, target)
+
+
+def render_footprint(source: Path, target: Path) -> None:
+    """Create an SVG preview from one .kicad_mod using a temporary .pretty library."""
+    with tempfile.TemporaryDirectory(prefix="footprint-render-") as temporary:
+        library = Path(temporary) / "component.pretty"
+        generated = Path(temporary) / "generated"
+        library.mkdir()
+        generated.mkdir()
+        shutil.copy2(source, library / source.name)
+        svg = run_kicad(["kicad-cli", "fp", "export", "svg", "--output", str(generated), str(library)])
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(svg, target)
+
+
+def svg_previews(kind: str, assets: list[dict[str, str]]) -> str:
+    """Render linked symbol/footprint SVG previews for one catalog card."""
+    previews = []
+    for asset in assets:
+        file_url = web_path(Path(asset["file"]))
+        if "render" in asset:
+            preview = f'<img src="{web_path(Path(asset["render"]))}" alt="Vista de {kind}">'
+        else:
+            preview = f'<div class="failed">{html.escape(asset.get("error", "No se pudo renderizar"))}</div>'
+        previews.append(
+            f'<section class="preview"><h3>{kind}</h3>{preview}'
+            f'<a href="{file_url}" download>Descargar {kind}</a></section>'
+        )
+    return "".join(previews) or f'<section class="preview"><h3>{kind}</h3><p>No disponible.</p></section>'
 
 
 def page(records: list[dict[str, object]], generated_at: str) -> str:
@@ -108,23 +164,23 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
         if "model" in record:
             model = web_path(Path(str(record["model"])))
             content = (
+                '<section class="preview model"><h3>Modelo 3D</h3>'
                 f'<model-viewer src="{model}" alt="Modelo 3D de {title}" '
                 "camera-controls touch-action=\"pan-y\" shadow-intensity=\"1\" "
-                "exposure=\"0.9\" interaction-prompt=\"auto\"></model-viewer>"
+                "exposure=\"0.9\" interaction-prompt=\"auto\"></model-viewer></section>"
             )
             status = "Listo para explorar"
         else:
-            content = '<div class="failed">No se pudo convertir este modelo.</div>'
+            content = '<section class="preview model"><h3>Modelo 3D</h3><div class="failed">No se pudo convertir este modelo.</div></section>'
             status = html.escape(str(record.get("error", "Error de conversión")))
-        footprint_links = " ".join(
-            f'<a href="{web_path(Path(str(footprint)))}" download>Huella KiCad</a>'
-            for footprint in record["footprints"]  # type: ignore[index]
-        ) or "<span>Sin huella KiCad asociada</span>"
+        symbols = svg_previews("Símbolo", record["symbols"])  # type: ignore[arg-type]
+        footprints = svg_previews("Huella", record["footprints"])  # type: ignore[arg-type]
         cards.append(
             "<article class=\"card\">"
-            f"{content}<div class=\"details\"><h2>{title}</h2>"
-            f"<p>{status}</p><p class=\"links\"><a href=\"{download}\" download>Descargar STEP</a> {footprint_links}</p>"
-            "</div></article>"
+            f"<div class=\"details\"><h2>{title}</h2><p>{status}</p>"
+            f"<p class=\"links\"><a href=\"{download}\" download>Descargar STEP</a></p></div>"
+            f"<div class=\"preview-grid\">{symbols}{footprints}{content}</div>"
+            "</article>"
         )
 
     empty = "<p>No se encontraron archivos .step o .stp.</p>" if not cards else ""
@@ -141,15 +197,18 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
     header {{ margin-bottom: 2rem; }} h1 {{ margin-bottom: .25rem; }} header p {{ color: #aeb9d0; }}
     .grid {{ display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 1.25rem; }}
     .card {{ overflow: hidden; border: 1px solid #2c3548; border-radius: .9rem; background: #181d28; }}
-    model-viewer, .failed {{ display: block; width: 100%; height: 290px; background: radial-gradient(circle at 50% 35%, #39455d, #151923 65%); }}
+    .preview-grid {{ display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid #2c3548; }}
+    .preview {{ min-width: 0; padding: .75rem; border-right: 1px solid #2c3548; }} .preview:last-child {{ border-right: 0; }} .preview h3 {{ margin: 0 0 .5rem; font-size: .85rem; color: #b9c4da; }}
+    .preview img, model-viewer, .failed {{ display: block; width: 100%; height: 190px; background: radial-gradient(circle at 50% 35%, #39455d, #151923 65%); object-fit: contain; }}
     .failed {{ display: grid; place-items: center; color: #ffb4ab; padding: 1rem; box-sizing: border-box; }}
     .details {{ padding: 1rem; }} h2 {{ overflow-wrap: anywhere; font-size: 1rem; margin: 0 0 .5rem; }}
-    .details p {{ min-height: 2.5em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }} .links {{ display: flex; flex-wrap: wrap; gap: .75rem; }}
+    .details p {{ min-height: 1.2em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }} .links {{ display: flex; flex-wrap: wrap; gap: .75rem; }}
+    @media (max-width: 600px) {{ .preview-grid {{ grid-template-columns: 1fr; }} .preview {{ border-right: 0; border-bottom: 1px solid #2c3548; }} }}
     footer {{ margin-top: 2rem; color: #8e9ab2; font-size: .85rem; }}
   </style>
 </head>
 <body><main>
-  <header><h1>Catálogo CAD</h1><p>Modelos STEP en color, con sus huellas KiCad y enlaces reutilizables.</p></header>
+  <header><h1>Catálogo CAD</h1><p>Símbolo, huella PCB y modelo 3D en color para cada componente.</p></header>
   {empty}<section class="grid">{''.join(cards)}</section>
   <footer>Generado {html.escape(generated_at)}</footer>
 </main></body></html>"""
@@ -174,17 +233,47 @@ def main() -> int:
         path for path in source_root.rglob("*")
         if path.is_file() and path.suffix.lower() == FOOTPRINT_EXTENSION and output not in path.parents
     )
+    symbol_files = sorted(
+        path for path in source_root.rglob("*")
+        if path.is_file() and path.suffix.lower() == SYMBOL_EXTENSION and output not in path.parents
+    )
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
 
-    footprint_urls: dict[Path, str] = {}
+    footprint_assets: dict[Path, dict[str, str]] = {}
     for footprint in footprint_files:
         relative = footprint.relative_to(source_root)
         destination = output / "footprints" / relative
         destination.parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(footprint, destination)
-        footprint_urls[footprint] = (Path("footprints") / relative).as_posix()
+        asset = {"file": (Path("footprints") / relative).as_posix()}
+        render = Path("renders") / "footprints" / f"{footprint.stem}-{hashlib.sha256(relative.as_posix().encode()).hexdigest()[:10]}.svg"
+        try:
+            render_footprint(footprint, output / render)
+            asset["render"] = render.as_posix()
+            print(f"Renderizada huella: {relative}")
+        except Exception as error:
+            asset["error"] = str(error)
+            print(f"No se pudo renderizar la huella {relative}: {error}", file=sys.stderr)
+        footprint_assets[footprint] = asset
+
+    symbol_assets: dict[Path, dict[str, str]] = {}
+    for symbol in symbol_files:
+        relative = symbol.relative_to(source_root)
+        destination = output / "symbols" / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(symbol, destination)
+        asset = {"file": (Path("symbols") / relative).as_posix()}
+        render = Path("renders") / "symbols" / f"{symbol.stem}-{hashlib.sha256(relative.as_posix().encode()).hexdigest()[:10]}.svg"
+        try:
+            render_symbol(symbol, output / render)
+            asset["render"] = render.as_posix()
+            print(f"Renderizado símbolo: {relative}")
+        except Exception as error:
+            asset["error"] = str(error)
+            print(f"No se pudo renderizar el símbolo {relative}: {error}", file=sys.stderr)
+        symbol_assets[symbol] = asset
 
     records: list[dict[str, object]] = []
     for source in step_files:
@@ -197,7 +286,8 @@ def main() -> int:
         record: dict[str, object] = {
             "source": relative.as_posix(),
             "step": (Path("sources") / relative).as_posix(),
-            "footprints": [footprint_urls[footprint] for footprint in component_footprints(source, footprint_files)],
+            "symbols": [symbol_assets[symbol] for symbol in component_assets(source, symbol_files)],
+            "footprints": [footprint_assets[footprint] for footprint in component_assets(source, footprint_files)],
         }
         try:
             convert_to_glb(source, output / glb)

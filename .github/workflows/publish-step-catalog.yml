@@ -10,6 +10,8 @@ on:
       - '**.STP'
       - '**.kicad_mod'
       - '**.KICAD_MOD'
+      - '**.kicad_sym'
+      - '**.KICAD_SYM'
       - 'tools/build_step_catalog.py'
       - 'requirements.txt'
       - '.github/workflows/publish-step-catalog.yml'
@@ -36,6 +38,8 @@ jobs:
           cache: pip
       - name: Instalar conversor CAD
         run: 'pip install --only-binary=:all: -r requirements.txt'
+      - name: Instalar renderizador KiCad
+        run: sudo apt-get update && sudo apt-get install --yes kicad
       - name: Convertir STEP a GLB y crear catálogo
         run: python tools/build_step_catalog.py --input . --output site
       - uses: actions/upload-pages-artifact@v4

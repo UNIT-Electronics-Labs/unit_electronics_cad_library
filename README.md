@@ -1,6 +1,6 @@
 # Biblioteca electrónica CAD
 
-Cada archivo `.step` o `.stp` se publica automáticamente como un modelo 3D interactivo **en color** en GitHub Pages. Las huellas `.kicad_mod` se copian y se enlazan desde cada tarjeta del catálogo.
+Cada archivo `.step` o `.stp` se publica automáticamente como un modelo 3D interactivo **en color** en GitHub Pages. Cada tarjeta contiene además una vista SVG del **símbolo** `.kicad_sym` y de la **huella PCB** `.kicad_mod`, junto con sus archivos descargables.
 
 ## Cómo publicar un componente
 
@@ -18,7 +18,8 @@ El catálogo publica `catalog.json`, un manifiesto de enlaces relativos. Cada el
 
 - `model`: GLB con los colores presentes en el STEP, para un visor 3D como `<model-viewer>` o Three.js.
 - `step`: enlace descargable al archivo STEP fuente.
-- `footprints`: lista de enlaces descargables a las huellas KiCad `.kicad_mod` asociadas.
+- `symbols`: lista de símbolos con `file` (fuente `.kicad_sym`) y `render` (vista SVG).
+- `footprints`: lista de huellas con `file` (fuente `.kicad_mod`) y `render` (vista SVG).
 
 Por ejemplo, desde otra web puedes solicitar `https://<usuario>.github.io/<repositorio>/catalog.json`. Para formar una URL correcta incluso con espacios en el nombre, usa `new URL(component.model, baseUrl)` y `new URL(component.footprints[0], baseUrl)`, donde `baseUrl` es `https://<usuario>.github.io/<repositorio>/`. Las rutas se mantienen estables mientras no cambie el nombre ni la carpeta del archivo fuente.
 
