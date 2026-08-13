@@ -8,7 +8,10 @@ on:
       - '**.STEP'
       - '**.stp'
       - '**.STP'
+      - '**.kicad_mod'
+      - '**.KICAD_MOD'
       - 'tools/build_step_catalog.py'
+      - 'requirements.txt'
       - '.github/workflows/publish-step-catalog.yml'
   workflow_dispatch:
 

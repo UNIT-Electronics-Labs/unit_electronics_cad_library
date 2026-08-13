@@ -11,6 +11,7 @@ import argparse
 import hashlib
 import html
 import json
+import os
 import shutil
 import sys
 import tempfile
@@ -20,6 +21,7 @@ from urllib.parse import quote
 
 
 STEP_EXTENSIONS = {".step", ".stp"}
+FOOTPRINT_EXTENSION = ".kicad_mod"
 
 
 def web_path(path: Path) -> str:
@@ -28,31 +30,83 @@ def web_path(path: Path) -> str:
 
 
 def convert_to_glb(source: Path, target: Path) -> None:
-    """Tessellate a STEP solid through CadQuery, then package it as glTF."""
+    """Tessellate a STEP solid through CadQuery, preserving STEP part colours."""
     # Keep these imports here so --help and static-site-only operations do not
     # require the large CAD dependencies to be installed.
     import cadquery as cq
     import trimesh
+    from OCP.Quantity import Quantity_Color, Quantity_TOC_RGB
+    from OCP.STEPCAFControl import STEPCAFControl_Reader
+    from OCP.TCollection import TCollection_ExtendedString
+    from OCP.TDF import TDF_LabelSequence
+    from OCP.TDocStd import TDocStd_Document
+    from OCP.TopAbs import TopAbs_SOLID
+    from OCP.TopExp import TopExp_Explorer
+    from OCP.XCAFDoc import XCAFDoc_ColorType, XCAFDoc_DocumentTool, XCAFDoc_ShapeTool
 
+    document = TDocStd_Document(TCollection_ExtendedString("step-catalog"))
+    reader = STEPCAFControl_Reader()
+    reader.SetColorMode(True)
+    if not reader.ReadFile(str(source)) or not reader.Transfer(document):
+        raise ValueError("OpenCascade no pudo leer el STEP")
+    shape_tool = XCAFDoc_DocumentTool.ShapeTool_s(document.Main())
+    colour_tool = XCAFDoc_DocumentTool.ColorTool_s(document.Main())
+    labels = TDF_LabelSequence()
+    shape_tool.GetFreeShapes(labels)
+    scene = trimesh.Scene()
     with tempfile.TemporaryDirectory(prefix="step-catalog-") as temporary:
-        stl = Path(temporary) / "model.stl"
-        model = cq.importers.importStep(str(source))
-        cq.exporters.export(model, str(stl), tolerance=0.1, angularTolerance=0.1)
-        mesh = trimesh.load_mesh(stl, force="mesh")
-        if mesh.is_empty:
-            raise ValueError("el archivo STEP no produjo una malla")
-        mesh.remove_unreferenced_vertices()
+        part_number = 0
+        for label_index in range(1, labels.Length() + 1):
+            root = XCAFDoc_ShapeTool.GetShape_s(labels.Value(label_index))
+            solids = TopExp_Explorer(root, TopAbs_SOLID)
+            while solids.More():
+                solid = solids.Current()
+                stl = Path(temporary) / f"part-{part_number}.stl"
+                cq.exporters.export(cq.Shape.cast(solid), str(stl), tolerance=0.1, angularTolerance=0.1)
+                mesh = trimesh.load_mesh(stl, force="mesh")
+                if not mesh.is_empty:
+                    colour = Quantity_Color()
+                    has_colour = colour_tool.GetColor(solid, XCAFDoc_ColorType.XCAFDoc_ColorSurf, colour)
+                    rgb = colour.Values(Quantity_TOC_RGB) if has_colour else (0.70, 0.72, 0.78)
+                    rgba = [round(max(0, min(1, channel)) * 255) for channel in rgb] + [255]
+                    # Vertex colours avoid an optional SciPy dependency in trimesh.
+                    mesh.visual.vertex_colors = [rgba] * len(mesh.vertices)
+                    scene.add_geometry(mesh, geom_name=f"part-{part_number}")
+                part_number += 1
+                solids.Next()
+        if not scene.geometry:
+            raise ValueError("el archivo STEP no produjo sólidos convertibles")
         target.parent.mkdir(parents=True, exist_ok=True)
-        mesh.export(target, file_type="glb")
+        scene.export(target, file_type="glb")
 
 
-def page(records: list[dict[str, str]], generated_at: str) -> str:
+def normalised_name(path: Path) -> str:
+    """Make supplier naming variants comparable (MODULE_X, module-x, etc.)."""
+    return "".join(character for character in path.stem.upper() if character.isalnum()).removeprefix("MODULE")
+
+
+def component_footprints(step: Path, footprints: list[Path]) -> list[Path]:
+    """Associate explicit name matches first, otherwise use the closest folder."""
+    step_name = normalised_name(step)
+    named = [footprint for footprint in footprints if normalised_name(footprint) == step_name]
+    if named:
+        return named
+
+    def shared_depth(footprint: Path) -> int:
+        return len(Path(os.path.commonpath((step.parent, footprint.parent))).parts)
+
+    best = max((shared_depth(footprint) for footprint in footprints), default=0)
+    return [footprint for footprint in footprints if best and shared_depth(footprint) == best]
+
+
+def page(records: list[dict[str, object]], generated_at: str) -> str:
     cards = []
     for record in records:
-        title = html.escape(record["source"])
-        download = web_path(Path("sources") / Path(record["source"]))
+        source = str(record["source"])
+        title = html.escape(source)
+        download = web_path(Path(str(record["step"])))
         if "model" in record:
-            model = web_path(Path(record["model"]))
+            model = web_path(Path(str(record["model"])))
             content = (
                 f'<model-viewer src="{model}" alt="Modelo 3D de {title}" '
                 "camera-controls touch-action=\"pan-y\" shadow-intensity=\"1\" "
@@ -61,11 +115,15 @@ def page(records: list[dict[str, str]], generated_at: str) -> str:
             status = "Listo para explorar"
         else:
             content = '<div class="failed">No se pudo convertir este modelo.</div>'
-            status = html.escape(record.get("error", "Error de conversión"))
+            status = html.escape(str(record.get("error", "Error de conversión")))
+        footprint_links = " ".join(
+            f'<a href="{web_path(Path(str(footprint)))}" download>Huella KiCad</a>'
+            for footprint in record["footprints"]  # type: ignore[index]
+        ) or "<span>Sin huella KiCad asociada</span>"
         cards.append(
             "<article class=\"card\">"
             f"{content}<div class=\"details\"><h2>{title}</h2>"
-            f"<p>{status}</p><a href=\"{download}\" download>Descargar STEP</a>"
+            f"<p>{status}</p><p class=\"links\"><a href=\"{download}\" download>Descargar STEP</a> {footprint_links}</p>"
             "</div></article>"
         )
 
@@ -86,12 +144,12 @@ def page(records: list[dict[str, str]], generated_at: str) -> str:
     model-viewer, .failed {{ display: block; width: 100%; height: 290px; background: radial-gradient(circle at 50% 35%, #39455d, #151923 65%); }}
     .failed {{ display: grid; place-items: center; color: #ffb4ab; padding: 1rem; box-sizing: border-box; }}
     .details {{ padding: 1rem; }} h2 {{ overflow-wrap: anywhere; font-size: 1rem; margin: 0 0 .5rem; }}
-    .details p {{ min-height: 2.5em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }}
+    .details p {{ min-height: 2.5em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }} .links {{ display: flex; flex-wrap: wrap; gap: .75rem; }}
     footer {{ margin-top: 2rem; color: #8e9ab2; font-size: .85rem; }}
   </style>
 </head>
 <body><main>
-  <header><h1>Catálogo CAD</h1><p>Modelos STEP convertidos para visualización web.</p></header>
+  <header><h1>Catálogo CAD</h1><p>Modelos STEP en color, con sus huellas KiCad y enlaces reutilizables.</p></header>
   {empty}<section class="grid">{''.join(cards)}</section>
   <footer>Generado {html.escape(generated_at)}</footer>
 </main></body></html>"""
@@ -112,11 +170,23 @@ def main() -> int:
         path for path in source_root.rglob("*")
         if path.is_file() and path.suffix.lower() in STEP_EXTENSIONS and output not in path.parents
     )
+    footprint_files = sorted(
+        path for path in source_root.rglob("*")
+        if path.is_file() and path.suffix.lower() == FOOTPRINT_EXTENSION and output not in path.parents
+    )
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
 
-    records: list[dict[str, str]] = []
+    footprint_urls: dict[Path, str] = {}
+    for footprint in footprint_files:
+        relative = footprint.relative_to(source_root)
+        destination = output / "footprints" / relative
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(footprint, destination)
+        footprint_urls[footprint] = (Path("footprints") / relative).as_posix()
+
+    records: list[dict[str, object]] = []
     for source in step_files:
         relative = source.relative_to(source_root)
         raw = output / "sources" / relative
@@ -124,7 +194,11 @@ def main() -> int:
         shutil.copy2(source, raw)
         identifier = hashlib.sha256(relative.as_posix().encode()).hexdigest()[:10]
         glb = Path("models") / f"{source.stem}-{identifier}.glb"
-        record: dict[str, str] = {"source": relative.as_posix()}
+        record: dict[str, object] = {
+            "source": relative.as_posix(),
+            "step": (Path("sources") / relative).as_posix(),
+            "footprints": [footprint_urls[footprint] for footprint in component_footprints(source, footprint_files)],
+        }
         try:
             convert_to_glb(source, output / glb)
             record["model"] = glb.as_posix()
@@ -135,6 +209,8 @@ def main() -> int:
         records.append(record)
 
     timestamp = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
+    manifest = {"generated_at": timestamp, "components": records}
+    (output / "catalog.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     (output / "models.json").write_text(json.dumps(records, ensure_ascii=False, indent=2), encoding="utf-8")
     (output / "index.html").write_text(page(records, timestamp), encoding="utf-8")
     print(f"Catálogo creado en {output} ({len(records)} archivo(s) STEP)")
