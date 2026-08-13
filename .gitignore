@@ -1,0 +1,4 @@
+# Salida reproducible del catálogo web y bytecode local de Python.
+site/
+__pycache__/
+*.py[cod]
