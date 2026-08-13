@@ -17,7 +17,7 @@ Los STEP originales se conservan en el repositorio y también se ofrecen como de
 Requiere Python 3.11 o compatible y dependencias CAD:
 
 ```bash
-python -m pip install --only-binary=:all: cadquery==2.5.2 trimesh==4.4.9
+python -m pip install --only-binary=:all: -r requirements.txt
 python tools/build_step_catalog.py --input . --output site
 python -m http.server --directory site 8000
 ```
