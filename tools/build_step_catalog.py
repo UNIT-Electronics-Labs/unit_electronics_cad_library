@@ -150,7 +150,11 @@ def svg_previews(kind: str, assets: list[dict[str, str]]) -> str:
             preview = f'<div class="failed">{html.escape(asset.get("error", "No se pudo renderizar"))}</div>'
         previews.append(
             f'<section class="preview"><h3>{kind}</h3>{preview}'
-            f'<a href="{file_url}" download>Descargar {kind}</a></section>'
+            '<p class="asset-actions">'
+            + (f'<a href="{web_path(Path(asset["render"]))}" target="_blank" rel="noopener">Abrir SVG</a> '
+               f'<button type="button" data-copy="{html.escape(asset["render"], quote=True)}">Copiar enlace</button> '
+               if "render" in asset else "")
+            + f'<a href="{file_url}" download>Archivo KiCad</a></p></section>'
         )
     return "".join(previews) or f'<section class="preview"><h3>{kind}</h3><p>No disponible.</p></section>'
 
@@ -167,7 +171,9 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
                 '<section class="preview model"><h3>Modelo 3D</h3>'
                 f'<model-viewer src="{model}" alt="Modelo 3D de {title}" '
                 "camera-controls touch-action=\"pan-y\" shadow-intensity=\"1\" "
-                "exposure=\"0.9\" interaction-prompt=\"auto\"></model-viewer></section>"
+                "exposure=\"0.9\" interaction-prompt=\"auto\"></model-viewer>"
+                f'<p class="asset-actions"><a href="{model}" target="_blank" rel="noopener">Abrir GLB</a> '
+                f'<button type="button" data-copy="{html.escape(str(record["model"]), quote=True)}">Copiar enlace</button></p></section>'
             )
             status = "Listo para explorar"
         else:
@@ -178,7 +184,8 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
         cards.append(
             "<article class=\"card\">"
             f"<div class=\"details\"><h2>{title}</h2><p>{status}</p>"
-            f"<p class=\"links\"><a href=\"{download}\" download>Descargar STEP</a></p></div>"
+            f"<p class=\"links\"><a href=\"{download}\" download>Descargar STEP</a> "
+            f"<button type=\"button\" data-copy=\"{html.escape(str(record['step']), quote=True)}\">Copiar enlace STEP</button></p></div>"
             f"<div class=\"preview-grid\">{symbols}{footprints}{content}</div>"
             "</article>"
         )
@@ -202,7 +209,8 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
     .preview img, model-viewer, .failed {{ display: block; width: 100%; height: 190px; background: radial-gradient(circle at 50% 35%, #39455d, #151923 65%); object-fit: contain; }}
     .failed {{ display: grid; place-items: center; color: #ffb4ab; padding: 1rem; box-sizing: border-box; }}
     .details {{ padding: 1rem; }} h2 {{ overflow-wrap: anywhere; font-size: 1rem; margin: 0 0 .5rem; }}
-    .details p {{ min-height: 1.2em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }} .links {{ display: flex; flex-wrap: wrap; gap: .75rem; }}
+    .details p {{ min-height: 1.2em; color: #b9c4da; font-size: .9rem; }} a {{ color: #9dcaff; }} .links, .asset-actions {{ display: flex; flex-wrap: wrap; gap: .75rem; }} .asset-actions {{ align-items: center; font-size: .85rem; }}
+    button {{ color: #9dcaff; background: none; border: 1px solid #53627e; border-radius: .3rem; padding: .18rem .4rem; font: inherit; cursor: pointer; }} button:hover {{ background: #273149; }}
     @media (max-width: 600px) {{ .preview-grid {{ grid-template-columns: 1fr; }} .preview {{ border-right: 0; border-bottom: 1px solid #2c3548; }} }}
     footer {{ margin-top: 2rem; color: #8e9ab2; font-size: .85rem; }}
   </style>
@@ -211,7 +219,23 @@ def page(records: list[dict[str, object]], generated_at: str) -> str:
   <header><h1>Catálogo CAD</h1><p>Símbolo, huella PCB y modelo 3D en color para cada componente.</p></header>
   {empty}<section class="grid">{''.join(cards)}</section>
   <footer>Generado {html.escape(generated_at)}</footer>
-</main></body></html>"""
+</main>
+<script>
+  document.addEventListener("click", async (event) => {{
+    const button = event.target.closest("button[data-copy]");
+    if (!button) return;
+    const original = button.textContent;
+    const url = new URL(button.dataset.copy, window.location.href).href;
+    try {{
+      await navigator.clipboard.writeText(url);
+      button.textContent = "¡Enlace copiado!";
+    }} catch {{
+      window.prompt("Copia este enlace:", url);
+    }}
+    window.setTimeout(() => {{ button.textContent = original; }}, 1800);
+  }});
+</script>
+</body></html>"""
 
 
 def main() -> int:
