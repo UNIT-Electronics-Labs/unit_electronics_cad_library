@@ -37,20 +37,11 @@ def normalised_name(path: Path) -> str:
 
 
 def associated_assets(step: Path, assets: list[Path], source_root: Path) -> list[Path]:
-    """Associate matching names first; otherwise use the closest source folder."""
+    """Associate matching names first; otherwise use the STEP's own folder."""
     named = [asset for asset in assets if normalised_name(asset) == normalised_name(step)]
     if named:
         return named
-
-    def shared_depth(asset: Path) -> int:
-        common = Path(os.path.commonpath((step.parent, asset.parent)))
-        try:
-            return len(common.relative_to(source_root).parts)
-        except ValueError:
-            return 0
-
-    best = max((shared_depth(asset) for asset in assets), default=0)
-    return [asset for asset in assets if best and shared_depth(asset) == best]
+    return [asset for asset in assets if asset.parent == step.parent]
 
 
 def run_kicad(command: list[str]) -> Path:

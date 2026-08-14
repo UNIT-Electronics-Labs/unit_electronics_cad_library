@@ -1,38 +1,71 @@
 :root {
-  color-scheme: dark;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
+  color-scheme: light;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #f5f6f4;
+  color: #172322;
 }
 
 * { box-sizing: border-box; }
-body { margin: 0; }
-main { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0; }
-.hero { max-width: 760px; margin-bottom: 2rem; }
-.eyebrow { color: #38bdf8; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-h1 { margin: .25rem 0 .75rem; font-size: clamp(2rem, 6vw, 3.5rem); }
-.hero p { color: #cbd5e1; line-height: 1.55; }
-#status { font-size: .9rem; }
-.catalog { display: grid; gap: 1.25rem; }
-.component { overflow: hidden; border: 1px solid #334155; border-radius: 1rem; background: #172033; }
-.component > header { padding: 1.15rem 1.25rem; border-bottom: 1px solid #334155; }
-h2 { overflow-wrap: anywhere; margin: 0 0 .75rem; font-size: 1.1rem; }
-.assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
-.asset { min-width: 0; padding: 1rem 1.25rem; border-right: 1px solid #334155; border-bottom: 1px solid #334155; }
-.asset h3 { margin: 0 0 .7rem; font-size: .95rem; color: #bae6fd; }
-.asset-name { overflow-wrap: anywhere; color: #94a3b8; font-size: .84rem; }
-.preview { display: grid; place-items: center; min-height: 180px; margin: .8rem 0; padding: .75rem; border-radius: .5rem; background: #e2e8f0; }
-.preview img { display: block; width: 100%; height: 165px; object-fit: contain; }
-.actions { display: flex; flex-wrap: wrap; gap: .55rem; }
-a, button { border-radius: .4rem; font: inherit; font-size: .85rem; }
-a { padding: .45rem .65rem; background: #0c4a6e; color: #e0f2fe; text-decoration: none; }
-a:hover { background: #075985; }
-button { border: 1px solid #64748b; padding: .45rem .65rem; background: transparent; color: #e2e8f0; cursor: pointer; }
-button:hover { border-color: #38bdf8; color: #bae6fd; }
-.empty, .error { padding: 1rem; border-radius: .5rem; background: #1e293b; }
-.error { color: #fecaca; }
+body { margin: 0; background: radial-gradient(circle at 87% 3%, #dceee6 0, transparent 22rem), #f5f6f4; }
+button, input { font: inherit; }
+.topbar, main { width: min(1220px, calc(100% - 3rem)); margin: 0 auto; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 0; }
+.brand { display: inline-flex; align-items: center; gap: .7rem; color: inherit; font-size: .92rem; font-weight: 760; letter-spacing: -.02em; text-decoration: none; }
+.brand small { display: block; color: #6b7673; font-size: .65rem; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.brand-mark { display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border-radius: .6rem; background: #172322; color: #d9ff64; font-size: .75rem; letter-spacing: -.06em; }
+.button, .action-link, .action-copy { display: inline-flex; align-items: center; justify-content: center; min-height: 2.35rem; border: 1px solid transparent; border-radius: .5rem; padding: .48rem .75rem; color: inherit; font-size: .78rem; font-weight: 700; line-height: 1; text-decoration: none; transition: .18s ease; }
+.button { cursor: pointer; }
+.button-quiet { border-color: #d4dad6; background: rgba(255, 255, 255, .55); }
+.button-quiet:hover { border-color: #172322; background: white; }
+.hero { position: relative; overflow: hidden; margin-top: 1.5rem; padding: clamp(2rem, 6vw, 5rem); border-radius: 1.35rem; background: #172322; color: #f8faf5; }
+.hero::after { position: absolute; inset: auto -3rem -8rem auto; width: 22rem; height: 22rem; border: 1px solid rgba(217, 255, 100, .4); border-radius: 50%; box-shadow: 0 0 0 2.8rem rgba(217, 255, 100, .08), 0 0 0 5.6rem rgba(217, 255, 100, .05); content: ""; }
+.eyebrow { margin: 0 0 .7rem; color: #65706c; font-size: .68rem; font-weight: 800; letter-spacing: .115em; text-transform: uppercase; }
+.hero .eyebrow { color: #d9ff64; }
+h1 { position: relative; z-index: 1; max-width: 720px; margin: 0; font-size: clamp(2.35rem, 6vw, 5.2rem); font-weight: 770; letter-spacing: -.075em; line-height: .96; }
+h1 em { color: #d9ff64; font-style: normal; }
+.intro { position: relative; z-index: 1; max-width: 545px; margin: 1.5rem 0 0; color: #bdc7c2; font-size: 1.02rem; line-height: 1.65; }
+.hero-meta { position: relative; z-index: 1; display: flex; align-items: center; gap: .65rem; margin-top: 2rem; color: #aab5b0; font-size: .78rem; }
+.hero-meta p { margin: 0; }
+.hero-meta a { color: #f8faf5; font-weight: 700; }
+.meta-dot { width: .28rem; height: .28rem; border-radius: 50%; background: #d9ff64; }
+.catalog-section { padding: 4.2rem 0 5rem; }
+.catalog-toolbar { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-bottom: 1.4rem; }
+h2 { margin: 0; font-size: clamp(1.55rem, 3vw, 2.25rem); letter-spacing: -.055em; }
+.search { min-width: min(100%, 18rem); }
+.search input { width: 100%; border: 1px solid #d4dad6; border-radius: .6rem; outline: 0; padding: .78rem .9rem; background: rgba(255, 255, 255, .7); color: inherit; }
+.search input:focus { border-color: #3b6358; box-shadow: 0 0 0 3px rgba(59, 99, 88, .12); }
+.catalog { display: grid; gap: 1rem; }
+.component { overflow: hidden; border: 1px solid #dce2de; border-radius: 1rem; background: rgba(255, 255, 255, .72); box-shadow: 0 1px 1px rgba(23, 35, 34, .02); }
+.component-header { display: flex; align-items: center; justify-content: space-between; gap: 1.25rem; padding: 1.25rem 1.35rem; }
+.component-index { display: block; margin-bottom: .3rem; color: #71807a; font-size: .67rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+.component-title { overflow-wrap: anywhere; margin: 0; font-size: 1.12rem; letter-spacing: -.025em; }
+.component-path { overflow-wrap: anywhere; margin: .3rem 0 0; color: #78837f; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .69rem; }
+.component-main-actions { display: flex; flex: 0 0 auto; gap: .4rem; }
+.assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(245px, 1fr)); border-top: 1px solid #e2e7e4; }
+.asset { min-width: 0; padding: 1.1rem 1.35rem 1.25rem; border-right: 1px solid #e2e7e4; }
+.asset:last-child { border-right: 0; }
+.asset h3 { margin: 0; color: #456258; font-size: .7rem; letter-spacing: .08em; text-transform: uppercase; }
+.asset-name { overflow-wrap: anywhere; min-height: 2.2em; margin: .38rem 0 .75rem; color: #74807b; font-size: .72rem; line-height: 1.45; }
+.preview { display: grid; min-height: 186px; place-items: center; margin: .8rem 0; padding: 1rem; border: 1px solid #e4e8e6; border-radius: .65rem; background: linear-gradient(140deg, #fafcfb, #eef3f0); }
+.preview img { display: block; width: 100%; height: 160px; object-fit: contain; }
+.actions { display: flex; flex-wrap: wrap; gap: .45rem; }
+.action-link { border-color: #d5ddd8; background: white; }
+.action-link:hover { border-color: #172322; }
+.action-copy { border: 1px solid #172322; background: #172322; color: #f8faf5; cursor: pointer; }
+.action-copy:hover { background: #315448; }
+.empty, .error { margin: 0; padding: 1rem 1.2rem; border-radius: .6rem; background: white; }
+.error { border: 1px solid #f2caca; color: #a03c3c; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-@media (max-width: 600px) {
-  main { width: min(100% - 1.25rem, 1180px); padding-top: 1.5rem; }
-  .asset { border-right: 0; }
+@media (max-width: 680px) {
+  .topbar, main { width: min(100% - 1.5rem, 1220px); }
+  .topbar { padding: .8rem 0; }
+  .button-quiet { padding: .42rem .55rem; font-size: .7rem; }
+  .hero { margin-top: .7rem; border-radius: 1rem; }
+  .catalog-section { padding: 2.7rem 0 3rem; }
+  .catalog-toolbar, .component-header { align-items: stretch; flex-direction: column; gap: 1rem; }
+  .search { width: 100%; }
+  .assets { grid-template-columns: 1fr; }
+  .asset { border-right: 0; border-bottom: 1px solid #e2e7e4; }
+  .asset:last-child { border-bottom: 0; }
 }

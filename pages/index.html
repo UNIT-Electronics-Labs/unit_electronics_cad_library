@@ -8,14 +8,37 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Inicio del catálogo">
+      <span class="brand-mark">UE</span>
+      <span>Unit Electronics <small>CAD Library</small></span>
+    </a>
+    <button id="copy-catalog" class="button button-quiet" type="button">Copiar catálogo JSON</button>
+  </header>
   <main>
-    <header class="hero">
-      <p class="eyebrow">UNIT Electronics</p>
-      <h1>Catálogo CAD</h1>
-      <p>Consulta las vistas SVG y copia enlaces de STEP, KiCad, GLB y SVG para usarlos en otra aplicación.</p>
-      <p id="status" role="status">Cargando catálogo…</p>
-    </header>
-    <section id="catalog" class="catalog" aria-live="polite"></section>
+    <section class="hero">
+      <p class="eyebrow">Biblioteca para integraciones</p>
+      <h1>Enlaces CAD, listos<br><em>para copiar y usar.</em></h1>
+      <p class="intro">Previsualiza símbolos y huellas, o copia en un clic el enlace que necesitas para tu aplicación.</p>
+      <div class="hero-meta">
+        <p id="status" role="status">Cargando catálogo…</p>
+        <span class="meta-dot" aria-hidden="true"></span>
+        <a id="open-catalog" href="#">Abrir JSON</a>
+      </div>
+    </section>
+    <section class="catalog-section" aria-labelledby="catalog-title">
+      <div class="catalog-toolbar">
+        <div>
+          <p class="eyebrow">Componentes publicados</p>
+          <h2 id="catalog-title">Explora la biblioteca</h2>
+        </div>
+        <label class="search">
+          <span class="visually-hidden">Buscar componente</span>
+          <input id="search" type="search" placeholder="Buscar por nombre…" autocomplete="off">
+        </label>
+      </div>
+      <section id="catalog" class="catalog" aria-live="polite"></section>
+    </section>
   </main>
   <template id="empty-template">
     <p class="empty">No hay componentes publicados todavía.</p>

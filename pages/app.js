@@ -3,9 +3,14 @@ const catalogUrl =
 
 const catalogElement = document.querySelector("#catalog");
 const statusElement = document.querySelector("#status");
+const searchElement = document.querySelector("#search");
+const openCatalogElement = document.querySelector("#open-catalog");
+const copyCatalogElement = document.querySelector("#copy-catalog");
+let components = [];
 
-function link(label, url) {
+function link(label, url, className = "action-link") {
   const element = document.createElement("a");
+  element.className = className;
   element.href = url;
   element.target = "_blank";
   element.rel = "noopener";
@@ -13,16 +18,24 @@ function link(label, url) {
   return element;
 }
 
-function copyButton(label, value) {
+async function copyValue(value) {
+  try {
+    await navigator.clipboard.writeText(value);
+    return true;
+  } catch {
+    window.prompt("Copia este enlace:", value);
+    return false;
+  }
+}
+
+function copyButton(label, value, className = "action-copy") {
   const button = document.createElement("button");
+  button.className = className;
   button.type = "button";
   button.textContent = label;
   button.addEventListener("click", async () => {
-    try {
-      await navigator.clipboard.writeText(value);
+    if (await copyValue(value)) {
       button.textContent = "¡Enlace copiado!";
-    } catch {
-      window.prompt("Copia este enlace:", value);
     }
     window.setTimeout(() => { button.textContent = label; }, 1800);
   });
@@ -32,7 +45,7 @@ function copyButton(label, value) {
 function actionsFor(url, sourceLabel) {
   const actions = document.createElement("div");
   actions.className = "actions";
-  actions.append(link(`Abrir ${sourceLabel}`, url), copyButton(`Copiar ${sourceLabel}`, url));
+  actions.append(link(`Abrir`, url), copyButton(`Copiar ${sourceLabel}`, url));
   return actions;
 }
 
@@ -60,13 +73,25 @@ function assetCard(kind, asset) {
   return section;
 }
 
-function componentCard(component) {
+function componentCard(component, index) {
   const article = document.createElement("article");
   article.className = "component";
   const header = document.createElement("header");
+  header.className = "component-header";
+  const details = document.createElement("div");
+  const componentIndex = document.createElement("span");
+  componentIndex.className = "component-index";
+  componentIndex.textContent = `Componente ${String(index + 1).padStart(2, "0")}`;
   const title = document.createElement("h2");
-  title.textContent = component.source_step.path;
-  header.append(title, actionsFor(component.source_step.url, "STEP"));
+  title.className = "component-title";
+  title.textContent = component.source_step.path.split("/").at(-1);
+  const path = document.createElement("p");
+  path.className = "component-path";
+  path.textContent = component.source_step.path;
+  details.append(componentIndex, title, path);
+  const mainActions = actionsFor(component.source_step.url, "STEP");
+  mainActions.classList.add("component-main-actions");
+  header.append(details, mainActions);
 
   const assets = document.createElement("div");
   assets.className = "assets";
@@ -77,17 +102,26 @@ function componentCard(component) {
   return article;
 }
 
+function renderCatalog() {
+  const query = searchElement.value.trim().toLowerCase();
+  const filtered = components.filter((component) =>
+    component.source_step.path.toLowerCase().includes(query),
+  );
+  catalogElement.replaceChildren();
+  if (!filtered.length) {
+    catalogElement.append(document.querySelector("#empty-template").content.cloneNode(true));
+    return;
+  }
+  filtered.forEach((component, index) => catalogElement.append(componentCard(component, index)));
+}
+
 async function loadCatalog() {
   try {
     const response = await fetch(catalogUrl);
     if (!response.ok) throw new Error(`No se pudo cargar el catálogo (${response.status})`);
     const catalog = await response.json();
-    const components = catalog.components ?? [];
-    if (!components.length) {
-      catalogElement.append(document.querySelector("#empty-template").content.cloneNode(true));
-    } else {
-      components.forEach((component) => catalogElement.append(componentCard(component)));
-    }
+    components = catalog.components ?? [];
+    renderCatalog();
     statusElement.textContent = `${components.length} componente(s) · catálogo actualizado ${catalog.generated_at ?? ""}`;
   } catch (error) {
     const message = document.createElement("p");
@@ -98,4 +132,13 @@ async function loadCatalog() {
   }
 }
 
+openCatalogElement.href = catalogUrl;
+openCatalogElement.target = "_blank";
+openCatalogElement.rel = "noopener";
+copyCatalogElement.addEventListener("click", async () => {
+  const label = "Copiar catálogo JSON";
+  if (await copyValue(catalogUrl)) copyCatalogElement.textContent = "¡Enlace copiado!";
+  window.setTimeout(() => { copyCatalogElement.textContent = label; }, 1800);
+});
+searchElement.addEventListener("input", renderCatalog);
 loadCatalog();
