@@ -1,0 +1,82 @@
+name: Publish component assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.step'
+      - '**.STEP'
+      - '**.stp'
+      - '**.STP'
+      - '**.kicad_mod'
+      - '**.KICAD_MOD'
+      - '**.kicad_sym'
+      - '**.KICAD_SYM'
+      - '**.lbr'
+      - '**.LBR'
+      - '**.svg'
+      - '**.SVG'
+      - 'tools/build_step_catalog.py'
+      - 'requirements.txt'
+      - '.github/workflows/publish-component-assets.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: component-assets
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.11'
+          cache: pip
+      - name: Install KiCad SVG exporter
+        run: |
+          sudo apt-get update
+          sudo apt-get install --yes kicad
+      - name: Install STEP converter
+        run: 'pip install --only-binary=:all: -r requirements.txt'
+      - name: Build GLB assets and JSON manifest
+        run: |
+          python tools/build_step_catalog.py --input . --output generated-assets \
+            --repository "$GITHUB_REPOSITORY" --source-ref "$GITHUB_SHA" --assets-ref assets
+      - uses: actions/upload-artifact@v4
+        with:
+          name: component-assets
+          path: generated-assets
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v5
+        with:
+          name: component-assets
+          path: generated-assets
+      - name: Publish the generated assets branch
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+        run: |
+          mkdir component-assets-publish
+          cd component-assets-publish
+          git init
+          git checkout --orphan assets
+          cp -a "$GITHUB_WORKSPACE/generated-assets/." .
+          git add --all
+          git commit -m "Update generated component assets"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          git push --force origin HEAD:assets

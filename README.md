@@ -1,36 +1,73 @@
 # Biblioteca electrónica CAD
 
-Cada archivo `.step` o `.stp` se publica automáticamente como un modelo 3D interactivo **en color** en GitHub Pages. Cada tarjeta contiene además una vista SVG del **símbolo** `.kicad_sym` y de la **huella PCB** `.kicad_mod`, junto con sus archivos descargables.
+Este repositorio no publica una web ni modifica los archivos CAD fuente. Al hacer push a `main`, el workflow crea dos recursos para tu API:
 
-## Cómo publicar un componente
+- Una rama `assets` con `catalog.json`, los modelos `.glb` en color y vistas `.svg` generadas de símbolos y huellas KiCad.
+- Enlaces directos a los archivos originales versionados: STEP, símbolos KiCad (`.kicad_sym`), huellas KiCad (`.kicad_mod`), librerías Eagle (`.lbr`) y SVG que ya existan en el repositorio.
 
-1. Guarda el STEP dentro de una carpeta con el nombre del componente, por ejemplo `arduino_nano/arduino-nano.step`.
+Los archivos fuente no se modifican. El workflow convierte el STEP a GLB para el visor 3D y genera SVG de cada `.kicad_sym` y `.kicad_mod` con `kicad-cli`. Los SVG generados quedan en la rama `assets`.
+
+## Enlace que debes guardar en tu API
+
+Después del primer workflow exitoso, guarda una sola URL permanente:
+
+```text
+https://raw.githubusercontent.com/<USUARIO>/<REPOSITORIO>/assets/catalog.json
+```
+
+No requiere configurar GitHub Pages. La rama `assets` es un repositorio de archivos generados, no un sitio web.
+
+El JSON tiene esta forma:
+
+```json
+{
+  "components": [
+    {
+      "source_step": { "url": "https://raw.githubusercontent.com/.../archivo.step" },
+      "symbols": [{ "url": "https://raw.githubusercontent.com/.../archivo.kicad_sym", "svg_url": "https://raw.githubusercontent.com/.../assets/svg/symbols/archivo.svg" }],
+      "footprints": [{ "url": "https://raw.githubusercontent.com/.../archivo.kicad_mod", "svg_url": "https://raw.githubusercontent.com/.../assets/svg/footprints/archivo.svg" }],
+      "eagle_libraries": [{ "url": "https://raw.githubusercontent.com/.../archivo.lbr" }],
+      "model_glb": { "url": "https://raw.githubusercontent.com/.../assets/models/archivo.glb" }
+    }
+  ]
+}
+```
+
+Tu API puede consultar ese JSON y guardar los valores `url`, sin construir ni codificar rutas.
+
+## Publicar cambios
+
+1. Agrega o actualiza los archivos CAD originales dentro de este repositorio.
 2. Haz `git add`, `git commit` y `git push` a `main`.
-3. El workflow **Publicar catálogo STEP** convierte los modelos a GLB y actualiza la página.
+3. El workflow **Publish component assets** actualiza la rama `assets`.
 
-En GitHub, configura **Settings → Pages → Build and deployment → Source** como **GitHub Actions** la primera vez. El enlace publicado aparece al terminar el job `deploy`.
+La configuración de Actions del repositorio debe permitir que `GITHUB_TOKEN` tenga permiso de escritura: **Settings → Actions → General → Workflow permissions → Read and write permissions**.
 
-Los STEP originales se conservan en el repositorio y también se ofrecen como descarga desde el catálogo. Los GLB y la carpeta `site/` son artefactos generados: no hace falta versionarlos.
+## Uso desde otra aplicación
 
-## Usarlo desde otra página web
+```js
+const manifestUrl =
+  "https://raw.githubusercontent.com/<USUARIO>/<REPOSITORIO>/assets/catalog.json";
 
-El catálogo publica `catalog.json`, un manifiesto de enlaces relativos. Cada elemento de `components` contiene:
+const catalog = await fetch(manifestUrl).then((response) => response.json());
+const component = catalog.components[0];
 
-- `model`: GLB con los colores presentes en el STEP, para un visor 3D como `<model-viewer>` o Three.js.
-- `step`: enlace descargable al archivo STEP fuente.
-- `symbols`: lista de símbolos con `file` (fuente `.kicad_sym`) y `render` (vista SVG).
-- `footprints`: lista de huellas con `file` (fuente `.kicad_mod`) y `render` (vista SVG).
+console.log(component.symbols[0].url);       // .kicad_sym original
+console.log(component.footprints[0].url);    // .kicad_mod original
+console.log(component.symbols[0].svg_url);   // SVG generado del símbolo
+console.log(component.footprints[0].svg_url); // SVG generado de la huella
+console.log(component.eagle_libraries[0].url); // .lbr original
+console.log(component.model_glb.url);        // GLB de alta calidad
+```
 
-Por ejemplo, desde otra web puedes solicitar `https://<usuario>.github.io/<repositorio>/catalog.json`. Para formar una URL correcta incluso con espacios en el nombre, usa `new URL(component.model, baseUrl)` y `new URL(component.footprints[0], baseUrl)`, donde `baseUrl` es `https://<usuario>.github.io/<repositorio>/`. Las rutas se mantienen estables mientras no cambie el nombre ni la carpeta del archivo fuente.
-
-## Probar el catálogo localmente
-
-Requiere Python 3.11 o compatible y dependencias CAD:
+## Generación local
 
 ```bash
 python -m pip install --only-binary=:all: -r requirements.txt
-python tools/build_step_catalog.py --input . --output site
-python -m http.server --directory site 8000
+# Instala KiCad 7 o posterior para generar las vistas SVG.
+python tools/build_step_catalog.py \
+  --input . --output generated-assets \
+  --repository <USUARIO>/<REPOSITORIO> --source-ref main
 ```
 
-Después abre `http://localhost:8000`. El navegador no interpreta STEP directamente; el workflow lo tesela a GLB, que sí puede mostrarse en una web.
+El resultado local queda en `generated-assets/catalog.json`, `generated-assets/models/` y `generated-assets/svg/`. Si KiCad no está instalado o un archivo no puede exportarse, el catálogo conserva el archivo fuente y añade `svg_error` en lugar de `svg_url`.
