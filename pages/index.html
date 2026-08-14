@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Catálogo de enlaces CAD de UNIT Electronics">
+  <title>Catálogo CAD | UNIT Electronics</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">UNIT Electronics</p>
+      <h1>Catálogo CAD</h1>
+      <p>Consulta las vistas SVG y copia enlaces de STEP, KiCad, GLB y SVG para usarlos en otra aplicación.</p>
+      <p id="status" role="status">Cargando catálogo…</p>
+    </header>
+    <section id="catalog" class="catalog" aria-live="polite"></section>
+  </main>
+  <template id="empty-template">
+    <p class="empty">No hay componentes publicados todavía.</p>
+  </template>
+  <script src="app.js" defer></script>
+</body>
+</html>

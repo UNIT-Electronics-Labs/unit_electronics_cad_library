@@ -1,0 +1,38 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+main { width: min(1180px, calc(100% - 2rem)); margin: 0 auto; padding: 3rem 0; }
+.hero { max-width: 760px; margin-bottom: 2rem; }
+.eyebrow { color: #38bdf8; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+h1 { margin: .25rem 0 .75rem; font-size: clamp(2rem, 6vw, 3.5rem); }
+.hero p { color: #cbd5e1; line-height: 1.55; }
+#status { font-size: .9rem; }
+.catalog { display: grid; gap: 1.25rem; }
+.component { overflow: hidden; border: 1px solid #334155; border-radius: 1rem; background: #172033; }
+.component > header { padding: 1.15rem 1.25rem; border-bottom: 1px solid #334155; }
+h2 { overflow-wrap: anywhere; margin: 0 0 .75rem; font-size: 1.1rem; }
+.assets { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); }
+.asset { min-width: 0; padding: 1rem 1.25rem; border-right: 1px solid #334155; border-bottom: 1px solid #334155; }
+.asset h3 { margin: 0 0 .7rem; font-size: .95rem; color: #bae6fd; }
+.asset-name { overflow-wrap: anywhere; color: #94a3b8; font-size: .84rem; }
+.preview { display: grid; place-items: center; min-height: 180px; margin: .8rem 0; padding: .75rem; border-radius: .5rem; background: #e2e8f0; }
+.preview img { display: block; width: 100%; height: 165px; object-fit: contain; }
+.actions { display: flex; flex-wrap: wrap; gap: .55rem; }
+a, button { border-radius: .4rem; font: inherit; font-size: .85rem; }
+a { padding: .45rem .65rem; background: #0c4a6e; color: #e0f2fe; text-decoration: none; }
+a:hover { background: #075985; }
+button { border: 1px solid #64748b; padding: .45rem .65rem; background: transparent; color: #e2e8f0; cursor: pointer; }
+button:hover { border-color: #38bdf8; color: #bae6fd; }
+.empty, .error { padding: 1rem; border-radius: .5rem; background: #1e293b; }
+.error { color: #fecaca; }
+
+@media (max-width: 600px) {
+  main { width: min(100% - 1.25rem, 1180px); padding-top: 1.5rem; }
+  .asset { border-right: 0; }
+}

@@ -15,7 +15,7 @@ Después del primer workflow exitoso, guarda una sola URL permanente:
 https://raw.githubusercontent.com/<USUARIO>/<REPOSITORIO>/assets/catalog.json
 ```
 
-No requiere configurar GitHub Pages. La rama `assets` es un repositorio de archivos generados, no un sitio web.
+La rama `assets` es un repositorio de archivos generados. El workflow también publica una interfaz para explorar y copiar enlaces en GitHub Pages. Configura una vez **Settings → Pages → Build and deployment → Source → GitHub Actions**; el enlace de la interfaz aparece al terminar el job `deploy-pages`.
 
 El JSON tiene esta forma:
 
