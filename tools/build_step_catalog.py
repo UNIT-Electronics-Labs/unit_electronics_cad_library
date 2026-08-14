@@ -226,8 +226,15 @@ def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
         elif tag == "rectangle":
             add(eagle_number(item, "x1"), eagle_number(item, "y1"))
             add(eagle_number(item, "x2"), eagle_number(item, "y2"))
-        elif tag in {"vertex", "text", "pin"}:
+        elif tag in {"vertex", "text"}:
             add(eagle_number(item, "x"), eagle_number(item, "y"))
+        elif tag == "pin":
+            x, y = eagle_number(item, "x"), eagle_number(item, "y")
+            length = {"point": 0, "short": 2.54, "middle": 5.08, "long": 7.62}.get(item.get("length", "middle"), 5.08)
+            direction = item.get("rot", "R0")[1:]
+            dx, dy = {"0": (length, 0), "90": (0, length), "180": (-length, 0), "270": (0, -length)}.get(direction, (length, 0))
+            add(x, y)
+            add(x + dx, y + dy)
     if not points:
         return (-5, -5, 5, 5)
     xs, ys = zip(*points)
@@ -235,7 +242,7 @@ def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
 
 
 def render_eagle_png(element: ET.Element, target: Path) -> None:
-    """Render a compact visual preview of an Eagle symbol or footprint as PNG."""
+    """Render an Eagle preview in a schematic/PCB style similar to SnapEDA."""
     min_x, min_y, max_x, max_y = eagle_bounds(element)
     margin_mm = 1.5
     width_mm = max(max_x - min_x + margin_mm * 2, 4)
@@ -243,7 +250,13 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     scale = min(36, 960 / max(width_mm, height_mm))
     width = max(160, round(width_mm * scale))
     height = max(160, round(height_mm * scale))
-    image = Image.new("RGB", (width, height), "white")
+    is_symbol = element.tag == "symbol"
+    background = "#ffffff" if is_symbol else "#050505"
+    foreground = "#1f2937" if is_symbol else "#d6d6ae"
+    text_colour = "#374151" if is_symbol else "#ececcf"
+    hole_colour = "#ffffff" if is_symbol else "#f3f4f6"
+    pad_colour = "#ff6b00"
+    image = Image.new("RGB", (width, height), background)
     draw = ImageDraw.Draw(image)
     font = ImageFont.load_default()
 
@@ -254,56 +267,66 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
         return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
 
     def line_width(item: ET.Element, fallback: float = 0.15) -> int:
-        return max(1, round(eagle_number(item, "width", fallback) * scale))
+        return max(1, round(eagle_number(item, "width", fallback) * scale * 0.35))
+
+    def pin_length(item: ET.Element) -> float:
+        return {"point": 0, "short": 2.54, "middle": 5.08, "long": 7.62}.get(item.get("length", "middle"), 5.08)
 
     for item in element.iter():
         tag = item.tag
         if tag == "wire":
             draw.line((point(eagle_number(item, "x1"), eagle_number(item, "y1")),
-                       point(eagle_number(item, "x2"), eagle_number(item, "y2"))), fill="#1f2937", width=line_width(item))
+                       point(eagle_number(item, "x2"), eagle_number(item, "y2"))), fill=foreground, width=line_width(item))
         elif tag == "circle":
             x, y, radius = eagle_number(item, "x"), eagle_number(item, "y"), eagle_number(item, "radius")
             left_top = point(x - radius, y + radius)
             right_bottom = point(x + radius, y - radius)
-            draw.ellipse((left_top, right_bottom), outline="#1f2937", width=line_width(item))
+            draw.ellipse((left_top, right_bottom), outline=foreground, width=line_width(item))
         elif tag == "rectangle":
             draw.rectangle(box(point(eagle_number(item, "x1"), eagle_number(item, "y1")),
-                               point(eagle_number(item, "x2"), eagle_number(item, "y2"))), outline="#1f2937", width=1)
+                               point(eagle_number(item, "x2"), eagle_number(item, "y2"))), outline=foreground, width=1)
         elif tag == "polygon":
             vertices = [point(eagle_number(vertex, "x"), eagle_number(vertex, "y")) for vertex in item.findall("vertex")]
             if len(vertices) > 2:
-                draw.polygon(vertices, fill="#d1d5db", outline="#1f2937")
+                draw.polygon(vertices, fill="#d1d5db" if is_symbol else "#394151", outline=foreground)
         elif tag == "smd":
             x, y = eagle_number(item, "x"), eagle_number(item, "y")
             dx, dy = eagle_number(item, "dx"), eagle_number(item, "dy")
-            draw.rectangle((point(x - dx / 2, y + dy / 2), point(x + dx / 2, y - dy / 2)), fill="#d97706")
+            draw.rectangle(box(point(x - dx / 2, y + dy / 2), point(x + dx / 2, y - dy / 2)), fill=pad_colour)
         elif tag == "pad":
             x, y = eagle_number(item, "x"), eagle_number(item, "y")
             drill = eagle_number(item, "drill")
             diameter = eagle_number(item, "diameter", drill * 1.8)
             radius = max(diameter / 2, 0.4)
             if item.get("shape") == "square":
-                draw.rectangle(box(point(x - radius, y + radius), point(x + radius, y - radius)), fill="#d97706")
+                draw.rectangle(box(point(x - radius, y + radius), point(x + radius, y - radius)), fill=pad_colour)
             else:
-                draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), fill="#d97706")
+                draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), fill=pad_colour)
             if drill:
                 drill_radius = drill / 2
-                draw.ellipse((point(x - drill_radius, y + drill_radius), point(x + drill_radius, y - drill_radius)), fill="white")
+                draw.ellipse((point(x - drill_radius, y + drill_radius), point(x + drill_radius, y - drill_radius)), fill=hole_colour)
         elif tag == "hole":
             x, y, radius = eagle_number(item, "x"), eagle_number(item, "y"), eagle_number(item, "drill") / 2
-            draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), outline="#1f2937", width=1)
+            draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), outline=foreground, width=1)
         elif tag == "pin":
             x, y = eagle_number(item, "x"), eagle_number(item, "y")
-            length = eagle_number(item, "length", 2.54)
+            length = pin_length(item)
             rotation = item.get("rot", "R0")
             direction = rotation[1:]
             dx, dy = {"0": (length, 0), "90": (0, length), "180": (-length, 0), "270": (0, -length)}.get(direction, (length, 0))
-            draw.line((point(x, y), point(x + dx, y + dy)), fill="#1f2937", width=1)
+            draw.line((point(x, y), point(x + dx, y + dy)), fill=foreground, width=1)
             px, py = point(x, y)
-            draw.ellipse((px - 2, py - 2, px + 2, py + 2), outline="#1f2937", width=1)
+            if direction in {"0", "180"}:
+                draw.rectangle((px - 4, py - 2, px + 4, py + 2), fill=pad_colour)
+            else:
+                draw.rectangle((px - 2, py - 4, px + 2, py + 4), fill=pad_colour)
+            label = item.get("name", "")
+            label_x, label_y = point(x + dx * 0.92, y + dy * 0.92)
+            label_anchor = {"0": "rs", "180": "ls", "90": "ms", "270": "ma"}.get(direction, "rs")
+            draw.text((label_x, label_y), label, fill=text_colour, font=font, anchor=label_anchor)
         elif tag == "text":
             x, y = point(eagle_number(item, "x"), eagle_number(item, "y"))
-            draw.text((x, y), item.text or "", fill="#1f2937", font=font, anchor="ls")
+            draw.text((x, y), item.text or "", fill=text_colour, font=font, anchor="ls")
 
     target.parent.mkdir(parents=True, exist_ok=True)
     image.save(target, "PNG", optimize=True)
