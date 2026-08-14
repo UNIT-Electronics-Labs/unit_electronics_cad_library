@@ -12,6 +12,7 @@ import argparse
 import copy
 import hashlib
 import json
+import math
 import os
 import shutil
 import subprocess
@@ -202,6 +203,15 @@ def eagle_number(element: ET.Element, attribute: str, default: float = 0.0) -> f
         return default
 
 
+def eagle_rotation(element: ET.Element) -> float:
+    """Return the rotation in degrees from Eagle's R*/MR* rotation syntax."""
+    rotation = element.get("rot", "R0").removeprefix("M")
+    try:
+        return float(rotation.removeprefix("R"))
+    except ValueError:
+        return 0.0
+
+
 def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
     """Estimate the drawing bounds of an Eagle package or symbol in millimetres."""
     points: list[tuple[float, float]] = []
@@ -293,6 +303,14 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     def box(first: tuple[float, float], second: tuple[float, float]) -> tuple[float, float, float, float]:
         return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
 
+    def rotated_rectangle(x: float, y: float, dx: float, dy: float, rotation: float) -> list[tuple[float, float]]:
+        """Map an Eagle rectangle after its local rotation around the pad centre."""
+        angle = math.radians(rotation)
+        cosine, sine = math.cos(angle), math.sin(angle)
+        corners = ((-dx / 2, -dy / 2), (-dx / 2, dy / 2), (dx / 2, dy / 2), (dx / 2, -dy / 2))
+        return [point(x + local_x * cosine - local_y * sine, y + local_x * sine + local_y * cosine)
+                for local_x, local_y in corners]
+
     def line_width(item: ET.Element, fallback: float = 0.15) -> int:
         if is_symbol:
             return max(3 * preview_density, round(eagle_number(item, "width", fallback) * scale * 0.8))
@@ -321,7 +339,7 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
         elif tag == "smd":
             x, y = eagle_number(item, "x"), eagle_number(item, "y")
             dx, dy = eagle_number(item, "dx"), eagle_number(item, "dy")
-            draw.rectangle(box(point(x - dx / 2, y + dy / 2), point(x + dx / 2, y - dy / 2)), fill=pad_colour)
+            draw.polygon(rotated_rectangle(x, y, dx, dy, eagle_rotation(item)), fill=pad_colour)
         elif tag == "pad":
             x, y = eagle_number(item, "x"), eagle_number(item, "y")
             drill = eagle_number(item, "drill")
