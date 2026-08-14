@@ -1,0 +1,3445 @@
+{
+  "schema_version": 2,
+  "generated_at": "2026-08-14T21:31:16Z",
+  "repository": "UNIT-Electronics-Labs/unit_electronics_cad_library",
+  "source_ref": "e470ff3c66ca0acd9fd965ae0d7faddae1c22928",
+  "assets_ref": "assets",
+  "catalog_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/catalog.json",
+  "components": [
+    {
+      "id": "d23b93b6ad3b",
+      "name": "ENC28J60_ETHERNET_MINI",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ENC28J60_ETHERNET_MINI",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ENC28J60-91d6ccc34b63.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ENC28J60-91d6ccc34b63.lbr",
+          "name": "ENC28J60",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ENC28J60-91d6ccc34b63.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ENC28J60-91d6ccc34b63.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ENC28J60-91d6ccc34b63.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ENC28J60-91d6ccc34b63.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ENC28J60-7bfddd85cb4d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ENC28J60-7bfddd85cb4d.lbr",
+          "name": "ENC28J60",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ENC28J60-7bfddd85cb4d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ENC28J60-7bfddd85cb4d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ENC28J60-7bfddd85cb4d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ENC28J60-7bfddd85cb4d.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ENC28J60-91d6ccc34b63.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ENC28J60-91d6ccc34b63.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ENC28J60-7bfddd85cb4d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ENC28J60-7bfddd85cb4d.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "728f3329662c",
+      "name": "HC-SR04",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "HC-SR04",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/HC-SR04-2624b59d78af.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/HC-SR04-2624b59d78af.lbr",
+          "name": "HC-SR04",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/HC-SR04-2624b59d78af.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HC-SR04-2624b59d78af.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/HC-SR04-2624b59d78af.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HC-SR04-2624b59d78af.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/XCVR-HC-SR04-7bdd758bc3bc.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/XCVR-HC-SR04-7bdd758bc3bc.lbr",
+          "name": "XCVR_HC-SR04",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/HC-SR04-2624b59d78af.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HC-SR04-2624b59d78af.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XCVR-HC-SR04-7bdd758bc3bc.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c8a33e9a8790",
+      "name": "DUALMCU",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DUALMCU",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "name": "DUALMCU",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DUALMCU-2c3f856550e1.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DUALMCU-8f37a326918d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DUALMCU-8f37a326918d.lbr",
+          "name": "DUALMCU",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DUALMCU-8f37a326918d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DUALMCU-8f37a326918d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DUALMCU-8f37a326918d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1e552ccff002",
+      "name": "DUALMCU DUALMCU_TOPSIDE",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DUALMCU",
+      "eagle_device": "DUALMCU_TOPSIDE",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "name": "DUALMCU",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DUALMCU-2c3f856550e1.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DUALMCU-8f37a326918d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DUALMCU-8f37a326918d.lbr",
+          "name": "DUALMCU",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DUALMCU-8f37a326918d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DUALMCU-8f37a326918d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DUALMCU-8f37a326918d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-8f37a326918d.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b50529956a09",
+      "name": "DUALMCU DUALMCU_TOP_MHOLES",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DUALMCU",
+      "eagle_device": "DUALMCU_TOP_MHOLES",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DUALMCU-2c3f856550e1.lbr",
+          "name": "DUALMCU",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DUALMCU-2c3f856550e1.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.lbr",
+          "name": "DUALMCU_TOP_MHOLES",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DUALMCU-2c3f856550e1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-2c3f856550e1.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-TOP-MHOLES-609338a2f34c.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "13a4b3db9066",
+      "name": "DUALMCU_S/N_DEBUG",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DUALMCU_S/N_DEBUG",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DUALMCU-S-N-DEBUG-e663586165d4.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DUALMCU-S-N-DEBUG-e663586165d4.lbr",
+          "name": "DUALMCU_S/N_DEBUG",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.lbr",
+          "name": "DUALMCU_S/N_DEBUG",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DUALMCU-S-N-DEBUG-e663586165d4.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DUALMCU-S-N-DEBUG-e6fb20ffb34a.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e48c5426ddd8",
+      "name": "LM2596-25W-3A",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "LM2596-25W-3A",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/LM2596-25W-3A-579e1ef59777.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/LM2596-25W-3A-579e1ef59777.lbr",
+          "name": "LM2596-25W-3A",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/LM2596-25W-3A-579e1ef59777.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/LM2596-25W-3A-579e1ef59777.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/LM2596-25W-3A-579e1ef59777.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/LM2596-25W-3A-579e1ef59777.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/LM2596-25W-3A-33a2f99c38c0.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/LM2596-25W-3A-33a2f99c38c0.lbr",
+          "name": "LM2596-25W-3A",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/LM2596-25W-3A-33a2f99c38c0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/LM2596-25W-3A-33a2f99c38c0.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/LM2596-25W-3A-33a2f99c38c0.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/LM2596-25W-3A-33a2f99c38c0.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/LM2596-25W-3A-579e1ef59777.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/LM2596-25W-3A-579e1ef59777.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/LM2596-25W-3A-33a2f99c38c0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/LM2596-25W-3A-33a2f99c38c0.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "32d2832db527",
+      "name": "ESP32-DEVKITC-32D",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32-DEVKITC-32D",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.lbr",
+          "name": "ESP32-DEVKITC-32D",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.lbr",
+          "name": "MODULE_ESP32-DEVKITC-32D",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f7ef272e4f84",
+      "name": "ESP32-DEVKITC-32D ESP32-32U",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32-DEVKITC-32D",
+      "eagle_device": "ESP32-32U",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.lbr",
+          "name": "ESP32-DEVKITC-32D",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.lbr",
+          "name": "MODULE_ESP32-DEVKITC-32D",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-32D-1a6cc3acc940.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ESP32-DEVKITC-32D-cab989d0e423.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "7dd396309bbc",
+      "name": "HX711 A",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "HX711",
+      "eagle_device": "A",
+      "symbols": [
+        {
+          "path": "eagle/symbols/HX711-c8938fd97790.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/HX711-c8938fd97790.lbr",
+          "name": "HX711",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/HX711-c8938fd97790.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HX711-c8938fd97790.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/HX711-c8938fd97790.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HX711-c8938fd97790.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/HX711-a52e8a42f67d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/HX711-a52e8a42f67d.lbr",
+          "name": "HX711",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/HX711-a52e8a42f67d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HX711-a52e8a42f67d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/HX711-a52e8a42f67d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HX711-a52e8a42f67d.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/HX711-c8938fd97790.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HX711-c8938fd97790.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/HX711-a52e8a42f67d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HX711-a52e8a42f67d.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f4782031bfb7",
+      "name": "ESP32LOLIN32_JST",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32LOLIN32_JST",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ESP32LOLIN32-3efa81029c14.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ESP32LOLIN32-3efa81029c14.lbr",
+          "name": "ESP32LOLIN32",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ESP32LOLIN32-3efa81029c14.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32LOLIN32-3efa81029c14.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ESP32LOLIN32-3efa81029c14.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32LOLIN32-3efa81029c14.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ESP32LOLIN32-b2e022f8c4ea.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ESP32LOLIN32-b2e022f8c4ea.lbr",
+          "name": "ESP32LOLIN32",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ESP32LOLIN32-b2e022f8c4ea.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32LOLIN32-b2e022f8c4ea.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ESP32LOLIN32-b2e022f8c4ea.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32LOLIN32-b2e022f8c4ea.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ESP32LOLIN32-3efa81029c14.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32LOLIN32-3efa81029c14.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ESP32LOLIN32-b2e022f8c4ea.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32LOLIN32-b2e022f8c4ea.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "761e49455f83",
+      "name": "XIAO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "XIAO",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "name": "XIAO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/XIAO-bed82323e0cb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/XIAO-8fc5e7a40b34.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/XIAO-8fc5e7a40b34.lbr",
+          "name": "XIAO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/XIAO-8fc5e7a40b34.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-8fc5e7a40b34.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/XIAO-8fc5e7a40b34.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-8fc5e7a40b34.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/XIAO-8fc5e7a40b34.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-8fc5e7a40b34.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d3856b629764",
+      "name": "XIAO DASHED_SILKSCREEN",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "XIAO",
+      "eagle_device": "DASHED_SILKSCREEN",
+      "symbols": [
+        {
+          "path": "eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "name": "XIAO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/XIAO-bed82323e0cb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.lbr",
+          "name": "XIAO_DASHED_SILKSCREEN",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-DASHED-SILKSCREEN-21bb38d63748.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "835536db4bd9",
+      "name": "XIAO SMD",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "XIAO",
+      "eagle_device": "SMD",
+      "symbols": [
+        {
+          "path": "eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/XIAO-bed82323e0cb.lbr",
+          "name": "XIAO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/XIAO-bed82323e0cb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/XIAO-SMD-71aa900c5b35.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/XIAO-SMD-71aa900c5b35.lbr",
+          "name": "XIAO_SMD",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/XIAO-SMD-71aa900c5b35.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-SMD-71aa900c5b35.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/XIAO-SMD-71aa900c5b35.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-SMD-71aa900c5b35.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/XIAO-bed82323e0cb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/XIAO-bed82323e0cb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/XIAO-SMD-71aa900c5b35.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/XIAO-SMD-71aa900c5b35.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "efc03573735f",
+      "name": "ARDUINO_NANO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINO_NANO",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "name": "ARDUINO_NANO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ARDUINO-NANO-82eb56be5f45.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ARDUINO-NANO-82eb56be5f45.lbr",
+          "name": "ARDUINO_NANO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ARDUINO-NANO-82eb56be5f45.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-82eb56be5f45.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ARDUINO-NANO-82eb56be5f45.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-82eb56be5f45.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ARDUINO-NANO-82eb56be5f45.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-82eb56be5f45.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a1ad23462974",
+      "name": "ARDUINO_NANO DASHED_SILKSCREEN",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINO_NANO",
+      "eagle_device": "DASHED_SILKSCREEN",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "name": "ARDUINO_NANO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.lbr",
+          "name": "ARDUINO_NANO_DASHED_SILKSCREEN",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINO-NANO-DASHED-SILKSCREEN-c63fb306279a.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "25ec7e6fdea9",
+      "name": "ARDUINO_NANO NANO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINO_NANO",
+      "eagle_device": "NANO",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "name": "ARDUINO_NANO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PULSAR-e64ff787b1fb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PULSAR-e64ff787b1fb.lbr",
+          "name": "PULSAR",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PULSAR-e64ff787b1fb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-e64ff787b1fb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PULSAR-e64ff787b1fb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-e64ff787b1fb.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PULSAR-e64ff787b1fb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-e64ff787b1fb.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "35e78009830f",
+      "name": "ARDUINO_NANO SMD",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINO_NANO",
+      "eagle_device": "SMD",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINO-NANO-5f912acb2a6f.lbr",
+          "name": "ARDUINO_NANO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/NANO-PULSAR-SMD-3167fced57a6.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/NANO-PULSAR-SMD-3167fced57a6.lbr",
+          "name": "NANO/PULSAR_SMD",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/NANO-PULSAR-SMD-3167fced57a6.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/NANO-PULSAR-SMD-3167fced57a6.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/NANO-PULSAR-SMD-3167fced57a6.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/NANO-PULSAR-SMD-3167fced57a6.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINO-NANO-5f912acb2a6f.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/NANO-PULSAR-SMD-3167fced57a6.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/NANO-PULSAR-SMD-3167fced57a6.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "cb524c592621",
+      "name": "ESP32-DEVKITC-VE",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32-DEVKITC-VE",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ESP32-DEVKITC-VE-40d96fe231eb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ESP32-DEVKITC-VE-40d96fe231eb.lbr",
+          "name": "ESP32-DEVKITC-VE",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ESP32DEVKITCVE-4f0cfc534d29.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ESP32DEVKITCVE-4f0cfc534d29.lbr",
+          "name": "ESP32DEVKITCVE",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-4f0cfc534d29.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "79cdcf4d88dc",
+      "name": "ESP32-DEVKITC-VE WITHOUT_NAME",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32-DEVKITC-VE",
+      "eagle_device": "WITHOUT_NAME",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ESP32-DEVKITC-VE-40d96fe231eb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ESP32-DEVKITC-VE-40d96fe231eb.lbr",
+          "name": "ESP32-DEVKITC-VE",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.lbr",
+          "name": "ESP32DEVKITCVE_WITHOUT_NAME",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ESP32-DEVKITC-VE-40d96fe231eb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ESP32DEVKITCVE-WITHOUT-NAME-dd73287053fa.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5f34b365e847",
+      "name": "PICO \"",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PICO",
+      "eagle_device": "\"",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "name": "PICO-1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PICO-1-a5c8da218e6b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PICO-1d3e1dd1fe29.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PICO-1d3e1dd1fe29.lbr",
+          "name": "PICO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PICO-1d3e1dd1fe29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PICO-1d3e1dd1fe29.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PICO-1d3e1dd1fe29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0a8a2ef03a50",
+      "name": "PICO DASHED_SILKSCREEN",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PICO",
+      "eagle_device": "DASHED_SILKSCREEN",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "name": "PICO-1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PICO-1-a5c8da218e6b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.lbr",
+          "name": "PICO_DASHED_SILKSCREEN",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-DASHED-SILKSCREEN-054cb8d58d11.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "315a674af7aa",
+      "name": "PICO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PICO",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "name": "PICO-1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PICO-1-a5c8da218e6b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PICO-SMD-324168ad64fe.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PICO-SMD-324168ad64fe.lbr",
+          "name": "PICO_SMD",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PICO-SMD-324168ad64fe.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-SMD-324168ad64fe.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PICO-SMD-324168ad64fe.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-SMD-324168ad64fe.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PICO-SMD-324168ad64fe.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-SMD-324168ad64fe.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "5eaf68bc1ceb",
+      "name": "PINES_PI_PICO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PINES_PI_PICO",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PICO-1-a5c8da218e6b.lbr",
+          "name": "PICO-1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PICO-1-a5c8da218e6b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PICO-1d3e1dd1fe29.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PICO-1d3e1dd1fe29.lbr",
+          "name": "PICO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PICO-1d3e1dd1fe29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PICO-1d3e1dd1fe29.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PICO-1-a5c8da218e6b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PICO-1-a5c8da218e6b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PICO-1d3e1dd1fe29.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PICO-1d3e1dd1fe29.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1f668cf60c79",
+      "name": "DEVKITC-V1",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DEVKITC-V1",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DEVKITC-V1-fc438dbcc6e8.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DEVKITC-V1-fc438dbcc6e8.lbr",
+          "name": "DEVKITC-V1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DEVKITC-V1-fc438dbcc6e8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKITC-V1-fc438dbcc6e8.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DEVKITC-V1-fc438dbcc6e8.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKITC-V1-fc438dbcc6e8.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DEVKITC-V1-208383cdee74.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DEVKITC-V1-208383cdee74.lbr",
+          "name": "DEVKITC-V1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DEVKITC-V1-208383cdee74.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKITC-V1-208383cdee74.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DEVKITC-V1-208383cdee74.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKITC-V1-208383cdee74.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DEVKITC-V1-fc438dbcc6e8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKITC-V1-fc438dbcc6e8.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DEVKITC-V1-208383cdee74.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKITC-V1-208383cdee74.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ea79c8a5be5b",
+      "name": "SUPERMINI",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "SUPERMINI",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/SUPERMINI-2acd5d79bab8.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/SUPERMINI-2acd5d79bab8.lbr",
+          "name": "SUPERMINI",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/SUPERMINI-2acd5d79bab8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SUPERMINI-2acd5d79bab8.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/SUPERMINI-2acd5d79bab8.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SUPERMINI-2acd5d79bab8.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/SUPERMINI-605cd45fcba3.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/SUPERMINI-605cd45fcba3.lbr",
+          "name": "SUPERMINI",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/SUPERMINI-605cd45fcba3.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SUPERMINI-605cd45fcba3.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/SUPERMINI-605cd45fcba3.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SUPERMINI-605cd45fcba3.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/SUPERMINI-2acd5d79bab8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SUPERMINI-2acd5d79bab8.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/SUPERMINI-605cd45fcba3.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SUPERMINI-605cd45fcba3.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2174439257ac",
+      "name": "ARDUINOR3 -DIMENSION",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINOR3",
+      "eagle_device": "-DIMENSION",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINOR3-e5320eee5aac.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINOR3-e5320eee5aac.lbr",
+          "name": "ARDUINOR3",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ARDUINOR3-8a9678cebedd.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ARDUINOR3-8a9678cebedd.lbr",
+          "name": "ARDUINOR3",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ARDUINOR3-8a9678cebedd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-8a9678cebedd.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ARDUINOR3-8a9678cebedd.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-8a9678cebedd.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ARDUINOR3-8a9678cebedd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-8a9678cebedd.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "a5cd47ffebf4",
+      "name": "ARDUINOR3 -BPLACE",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARDUINOR3",
+      "eagle_device": "-BPLACE",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARDUINOR3-e5320eee5aac.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARDUINOR3-e5320eee5aac.lbr",
+          "name": "ARDUINOR3",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ARDUINOR3-BPLACE-897544575643.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ARDUINOR3-BPLACE-897544575643.lbr",
+          "name": "ARDUINOR3-BPLACE",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ARDUINOR3-BPLACE-897544575643.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-BPLACE-897544575643.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ARDUINOR3-BPLACE-897544575643.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-BPLACE-897544575643.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARDUINOR3-e5320eee5aac.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ARDUINOR3-BPLACE-897544575643.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARDUINOR3-BPLACE-897544575643.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bd466f381933",
+      "name": "UNIT_COCKET_NOVA_V1.2",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "UNIT_COCKET_NOVA_V1.2",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/COCKET-NOVA-0fac02c850e2.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/COCKET-NOVA-0fac02c850e2.lbr",
+          "name": "COCKET_NOVA",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/COCKET-NOVA-0fac02c850e2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/COCKET-NOVA-0fac02c850e2.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/COCKET-NOVA-0fac02c850e2.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/COCKET-NOVA-0fac02c850e2.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/COCKET-NOVA-b1efb82d8006.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/COCKET-NOVA-b1efb82d8006.lbr",
+          "name": "COCKET_NOVA",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/COCKET-NOVA-b1efb82d8006.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/COCKET-NOVA-b1efb82d8006.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/COCKET-NOVA-b1efb82d8006.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/COCKET-NOVA-b1efb82d8006.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/COCKET-NOVA-0fac02c850e2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/COCKET-NOVA-0fac02c850e2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/COCKET-NOVA-b1efb82d8006.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/COCKET-NOVA-b1efb82d8006.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "de33817112cd",
+      "name": "CH340E",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "CH340E",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PINES-USB-CH340E-d813b129fa8b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PINES-USB-CH340E-d813b129fa8b.lbr",
+          "name": "PINES_USB_CH340E",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PINES-USB-CH340E-d813b129fa8b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PINES-USB-CH340E-d813b129fa8b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PINES-USB-CH340E-d813b129fa8b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PINES-USB-CH340E-d813b129fa8b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/CH340-SILKSCREEN-90b60e33ade5.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/CH340-SILKSCREEN-90b60e33ade5.lbr",
+          "name": "CH340_SILKSCREEN",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/CH340-SILKSCREEN-90b60e33ade5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/CH340-SILKSCREEN-90b60e33ade5.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/CH340-SILKSCREEN-90b60e33ade5.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/CH340-SILKSCREEN-90b60e33ade5.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PINES-USB-CH340E-d813b129fa8b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PINES-USB-CH340E-d813b129fa8b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/CH340-SILKSCREEN-90b60e33ade5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/CH340-SILKSCREEN-90b60e33ade5.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "2cbdccfc4a57",
+      "name": "UNIT_BATTERY_CHARGER",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "UNIT_BATTERY_CHARGER",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.lbr",
+          "name": "UNIT_BATTERY_CHARGER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.lbr",
+          "name": "UNIT_BATTERY_CHARGER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/UNIT-BATTERY-CHARGER-850a5779b6c7.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/UNIT-BATTERY-CHARGER-b0b96d83a872.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ae3ad6bd86d9",
+      "name": "TEMT6000",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "TEMT6000",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/TEMT6000-1c8642ec2178.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/TEMT6000-1c8642ec2178.lbr",
+          "name": "TEMT6000",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/TEMT6000-1c8642ec2178.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TEMT6000-1c8642ec2178.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/TEMT6000-1c8642ec2178.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TEMT6000-1c8642ec2178.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/TEMT6000-22030424f8d8.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/TEMT6000-22030424f8d8.lbr",
+          "name": "TEMT6000",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/TEMT6000-22030424f8d8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TEMT6000-22030424f8d8.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/TEMT6000-22030424f8d8.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TEMT6000-22030424f8d8.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/TEMT6000-1c8642ec2178.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TEMT6000-1c8642ec2178.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/TEMT6000-22030424f8d8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TEMT6000-22030424f8d8.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "7e003d9f6c86",
+      "name": "HW-519",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "HW-519",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/HW-519-febb29124582.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/HW-519-febb29124582.lbr",
+          "name": "HW-519",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/HW-519-febb29124582.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HW-519-febb29124582.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/HW-519-febb29124582.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HW-519-febb29124582.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/HW-519-667b758a4e4f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/HW-519-667b758a4e4f.lbr",
+          "name": "HW-519",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/HW-519-667b758a4e4f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HW-519-667b758a4e4f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/HW-519-667b758a4e4f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HW-519-667b758a4e4f.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/HW-519-febb29124582.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/HW-519-febb29124582.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/HW-519-667b758a4e4f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/HW-519-667b758a4e4f.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0ec9687c78a4",
+      "name": "DS1307",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DS1307",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DS1307-6c1cc13d920d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DS1307-6c1cc13d920d.lbr",
+          "name": "DS1307",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DS1307-6c1cc13d920d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS1307-6c1cc13d920d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DS1307-6c1cc13d920d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS1307-6c1cc13d920d.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DS1307-94fc8dd1681c.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DS1307-94fc8dd1681c.lbr",
+          "name": "DS1307",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DS1307-94fc8dd1681c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS1307-94fc8dd1681c.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DS1307-94fc8dd1681c.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS1307-94fc8dd1681c.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DS1307-6c1cc13d920d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS1307-6c1cc13d920d.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DS1307-94fc8dd1681c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS1307-94fc8dd1681c.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "170022383fdc",
+      "name": "BME/BMP280",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "BME/BMP280",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/BME-BMP280-4bec74765e07.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/BME-BMP280-4bec74765e07.lbr",
+          "name": "BME/BMP280",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/BME-BMP280-4bec74765e07.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/BME-BMP280-4bec74765e07.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/BME-BMP280-4bec74765e07.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/BME-BMP280-4bec74765e07.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/BME-BMP280-a466c8b60278.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/BME-BMP280-a466c8b60278.lbr",
+          "name": "BME/BMP280",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/BME-BMP280-a466c8b60278.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/BME-BMP280-a466c8b60278.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/BME-BMP280-a466c8b60278.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/BME-BMP280-a466c8b60278.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/BME-BMP280-4bec74765e07.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/BME-BMP280-4bec74765e07.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/BME-BMP280-a466c8b60278.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/BME-BMP280-a466c8b60278.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "120328ab99e4",
+      "name": "AHT20+BMP280",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "AHT20+BMP280",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/AHT20-BMP280-b665d091b98d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/AHT20-BMP280-b665d091b98d.lbr",
+          "name": "AHT20+BMP280",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/AHT20-BMP280-b665d091b98d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AHT20-BMP280-b665d091b98d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/AHT20-BMP280-b665d091b98d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AHT20-BMP280-b665d091b98d.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/AHT20-BMP280-3ea296a04725.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/AHT20-BMP280-3ea296a04725.lbr",
+          "name": "AHT20+BMP280",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/AHT20-BMP280-3ea296a04725.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/AHT20-BMP280-3ea296a04725.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/AHT20-BMP280-3ea296a04725.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/AHT20-BMP280-3ea296a04725.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/AHT20-BMP280-b665d091b98d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AHT20-BMP280-b665d091b98d.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/AHT20-BMP280-3ea296a04725.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/AHT20-BMP280-3ea296a04725.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1bff27e682f2",
+      "name": "SIM800C",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "SIM800C",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/SIM800C-20dd35c2d118.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/SIM800C-20dd35c2d118.lbr",
+          "name": "SIM800C",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/SIM800C-20dd35c2d118.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SIM800C-20dd35c2d118.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/SIM800C-20dd35c2d118.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SIM800C-20dd35c2d118.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/SIM800C-5031fdad8fd1.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/SIM800C-5031fdad8fd1.lbr",
+          "name": "SIM800C",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/SIM800C-5031fdad8fd1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SIM800C-5031fdad8fd1.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/SIM800C-5031fdad8fd1.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SIM800C-5031fdad8fd1.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/SIM800C-20dd35c2d118.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SIM800C-20dd35c2d118.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/SIM800C-5031fdad8fd1.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SIM800C-5031fdad8fd1.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d0b88a49d77f",
+      "name": "MAX-485",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "MAX-485",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/MAX485-ecf9a365a0f5.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/MAX485-ecf9a365a0f5.lbr",
+          "name": "MAX485",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/MAX485-ecf9a365a0f5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MAX485-ecf9a365a0f5.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/MAX485-ecf9a365a0f5.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MAX485-ecf9a365a0f5.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MAX-485-455c9776f893.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MAX-485-455c9776f893.lbr",
+          "name": "MAX-485",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MAX-485-455c9776f893.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MAX-485-455c9776f893.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MAX-485-455c9776f893.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MAX-485-455c9776f893.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/MAX485-ecf9a365a0f5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MAX485-ecf9a365a0f5.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MAX-485-455c9776f893.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MAX-485-455c9776f893.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1c30e788f1c7",
+      "name": "74HC4067",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "74HC4067",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/74HC4067-547f299f109b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/74HC4067-547f299f109b.lbr",
+          "name": "74HC4067",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/74HC4067-547f299f109b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/74HC4067-547f299f109b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/74HC4067-547f299f109b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/74HC4067-547f299f109b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/74HC4067-5d8ccf193659.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/74HC4067-5d8ccf193659.lbr",
+          "name": "74HC4067",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/74HC4067-5d8ccf193659.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/74HC4067-5d8ccf193659.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/74HC4067-5d8ccf193659.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/74HC4067-5d8ccf193659.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/74HC4067-547f299f109b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/74HC4067-547f299f109b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/74HC4067-5d8ccf193659.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/74HC4067-5d8ccf193659.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "334dfac5bade",
+      "name": "MIKROBUS",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "MIKROBUS",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/MIKROBUS-4e3e9aee6dc0.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/MIKROBUS-4e3e9aee6dc0.lbr",
+          "name": "MIKROBUS",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/MIKROBUS-4e3e9aee6dc0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MIKROBUS-4e3e9aee6dc0.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/MIKROBUS-4e3e9aee6dc0.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MIKROBUS-4e3e9aee6dc0.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MIKROBUS-b0128863fe9c.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MIKROBUS-b0128863fe9c.lbr",
+          "name": "MIKROBUS",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MIKROBUS-b0128863fe9c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-b0128863fe9c.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MIKROBUS-b0128863fe9c.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-b0128863fe9c.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/MIKROBUS-4e3e9aee6dc0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MIKROBUS-4e3e9aee6dc0.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MIKROBUS-b0128863fe9c.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-b0128863fe9c.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "e82db20c3a19",
+      "name": "ADAFRUIT_FEATHER",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ADAFRUIT_FEATHER",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "name": "ADAFRUIT_FEATHER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ADAFRUIT-FEATHER-2cfe8636543f.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ADAFRUIT-FEATHER-2cfe8636543f.lbr",
+          "name": "ADAFRUIT_FEATHER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-2cfe8636543f.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1c4e7d75f04e",
+      "name": "ADAFRUIT_FEATHER S/N_BARRENOS",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ADAFRUIT_FEATHER",
+      "eagle_device": "S/N_BARRENOS",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "name": "ADAFRUIT_FEATHER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.lbr",
+          "name": "ADAFRUIT_FEATHER_S/N_BARRENOS",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ADAFRUIT-FEATHER-S-N-BARRENOS-0d687acb7908.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "9072b82df898",
+      "name": "ADAFRUIT_FEATHER SMD",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ADAFRUIT_FEATHER",
+      "eagle_device": "SMD",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.lbr",
+          "name": "ADAFRUIT_FEATHER",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/FEATHER-SMD-5a2502d8eacd.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/FEATHER-SMD-5a2502d8eacd.lbr",
+          "name": "FEATHER_SMD",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/FEATHER-SMD-5a2502d8eacd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/FEATHER-SMD-5a2502d8eacd.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/FEATHER-SMD-5a2502d8eacd.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/FEATHER-SMD-5a2502d8eacd.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ADAFRUIT-FEATHER-a3f0efba61a2.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/FEATHER-SMD-5a2502d8eacd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/FEATHER-SMD-5a2502d8eacd.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "26f9eb1d66bb",
+      "name": "AUDIO_BFF",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "AUDIO_BFF",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/AUDIO-BFF-a31376052906.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/AUDIO-BFF-a31376052906.lbr",
+          "name": "AUDIO_BFF",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/AUDIO-BFF-a31376052906.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AUDIO-BFF-a31376052906.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/AUDIO-BFF-a31376052906.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AUDIO-BFF-a31376052906.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/QT-INVERTED-dbfd67277aa0.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/QT-INVERTED-dbfd67277aa0.lbr",
+          "name": "QT_INVERTED",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/QT-INVERTED-dbfd67277aa0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/QT-INVERTED-dbfd67277aa0.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/QT-INVERTED-dbfd67277aa0.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/QT-INVERTED-dbfd67277aa0.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/AUDIO-BFF-a31376052906.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/AUDIO-BFF-a31376052906.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/QT-INVERTED-dbfd67277aa0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/QT-INVERTED-dbfd67277aa0.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1c1678fa8edb",
+      "name": "SPH0645",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "SPH0645",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/SPH0645-ed9bc6cd60a0.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/SPH0645-ed9bc6cd60a0.lbr",
+          "name": "SPH0645",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/SPH0645-ed9bc6cd60a0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SPH0645-ed9bc6cd60a0.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/SPH0645-ed9bc6cd60a0.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SPH0645-ed9bc6cd60a0.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/SPH0645-a5aa851fe9e5.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/SPH0645-a5aa851fe9e5.lbr",
+          "name": "SPH0645",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/SPH0645-a5aa851fe9e5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SPH0645-a5aa851fe9e5.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/SPH0645-a5aa851fe9e5.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SPH0645-a5aa851fe9e5.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/SPH0645-ed9bc6cd60a0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/SPH0645-ed9bc6cd60a0.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/SPH0645-a5aa851fe9e5.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/SPH0645-a5aa851fe9e5.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "856d9d931656",
+      "name": "TINYPICO",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "TINYPICO",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/TINYPICO-54c459b5e6a7.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/TINYPICO-54c459b5e6a7.lbr",
+          "name": "TINYPICO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/TINYPICO-54c459b5e6a7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TINYPICO-54c459b5e6a7.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/TINYPICO-54c459b5e6a7.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TINYPICO-54c459b5e6a7.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/TINY-PICO-8aeb7f0bb222.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/TINY-PICO-8aeb7f0bb222.lbr",
+          "name": "TINY_PICO",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/TINY-PICO-8aeb7f0bb222.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TINY-PICO-8aeb7f0bb222.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/TINY-PICO-8aeb7f0bb222.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TINY-PICO-8aeb7f0bb222.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/TINYPICO-54c459b5e6a7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/TINYPICO-54c459b5e6a7.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/TINY-PICO-8aeb7f0bb222.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/TINY-PICO-8aeb7f0bb222.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "7899f89aba6f",
+      "name": "PCA9685",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PCA9685",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PCA9685-b9bb2120f004.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PCA9685-b9bb2120f004.lbr",
+          "name": "PCA9685",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PCA9685-b9bb2120f004.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PCA9685-b9bb2120f004.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PCA9685-b9bb2120f004.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PCA9685-b9bb2120f004.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PCA9685-45691c5009f0.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PCA9685-45691c5009f0.lbr",
+          "name": "PCA9685",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PCA9685-45691c5009f0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PCA9685-45691c5009f0.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PCA9685-45691c5009f0.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PCA9685-45691c5009f0.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PCA9685-b9bb2120f004.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PCA9685-b9bb2120f004.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PCA9685-45691c5009f0.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PCA9685-45691c5009f0.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "db9d5f6bef1b",
+      "name": "DS3231",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DS3231",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DS3231-e6002bee11bb.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DS3231-e6002bee11bb.lbr",
+          "name": "DS3231",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DS3231-e6002bee11bb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS3231-e6002bee11bb.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DS3231-e6002bee11bb.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS3231-e6002bee11bb.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DS3231-e8ab890653ea.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DS3231-e8ab890653ea.lbr",
+          "name": "DS3231",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DS3231-e8ab890653ea.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS3231-e8ab890653ea.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DS3231-e8ab890653ea.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS3231-e8ab890653ea.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DS3231-e6002bee11bb.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DS3231-e6002bee11bb.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DS3231-e8ab890653ea.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DS3231-e8ab890653ea.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "b87535be7883",
+      "name": "MX1508",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "MX1508",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/MX1508-9be976b92bc9.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/MX1508-9be976b92bc9.lbr",
+          "name": "MX1508",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/MX1508-9be976b92bc9.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MX1508-9be976b92bc9.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/MX1508-9be976b92bc9.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MX1508-9be976b92bc9.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MX1508-03f24f751cfc.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MX1508-03f24f751cfc.lbr",
+          "name": "MX1508",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MX1508-03f24f751cfc.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MX1508-03f24f751cfc.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MX1508-03f24f751cfc.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MX1508-03f24f751cfc.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/MX1508-9be976b92bc9.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MX1508-9be976b92bc9.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MX1508-03f24f751cfc.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MX1508-03f24f751cfc.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "caef089d59ec",
+      "name": "MP1584",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "MP1584",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/MP1584-2ee3ea03208b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/MP1584-2ee3ea03208b.lbr",
+          "name": "MP1584",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/MP1584-2ee3ea03208b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MP1584-2ee3ea03208b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/MP1584-2ee3ea03208b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MP1584-2ee3ea03208b.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MP1584-8dff5bd6c3f8.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MP1584-8dff5bd6c3f8.lbr",
+          "name": "MP1584",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MP1584-8dff5bd6c3f8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MP1584-8dff5bd6c3f8.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MP1584-8dff5bd6c3f8.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MP1584-8dff5bd6c3f8.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/MP1584-2ee3ea03208b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/MP1584-2ee3ea03208b.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MP1584-8dff5bd6c3f8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MP1584-8dff5bd6c3f8.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0d07e8e72610",
+      "name": "PUENTE_H_TB6612FNG",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "PUENTE_H_TB6612FNG",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ROB-14450-7f6878bed231.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ROB-14450-7f6878bed231.lbr",
+          "name": "ROB-14450",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ROB-14450-7f6878bed231.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ROB-14450-7f6878bed231.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ROB-14450-7f6878bed231.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ROB-14450-7f6878bed231.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MODULE-ROB-14450-8272c6da258d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MODULE-ROB-14450-8272c6da258d.lbr",
+          "name": "MODULE_ROB-14450",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MODULE-ROB-14450-8272c6da258d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ROB-14450-8272c6da258d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MODULE-ROB-14450-8272c6da258d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ROB-14450-8272c6da258d.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ROB-14450-7f6878bed231.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ROB-14450-7f6878bed231.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MODULE-ROB-14450-8272c6da258d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MODULE-ROB-14450-8272c6da258d.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "f42c4139791b",
+      "name": "UNIT_PULSAR",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "UNIT_PULSAR",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PULSAR-85b708de8316.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PULSAR-85b708de8316.lbr",
+          "name": "PULSAR",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PULSAR-85b708de8316.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PULSAR-85b708de8316.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PULSAR-85b708de8316.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PULSAR-85b708de8316.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.lbr",
+          "name": "PULSAR_S/N_SILKSCREEN",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PULSAR-85b708de8316.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PULSAR-85b708de8316.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PULSAR-S-N-SILKSCREEN-7190d034905b.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d3002c0c8686",
+      "name": "WT32-ETH01",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "WT32-ETH01",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/WT32-ETH01-1ef9ee9ae7ba.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/WT32-ETH01-1ef9ee9ae7ba.lbr",
+          "name": "WT32-ETH01",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/WT32-ETH01-1ef9ee9ae7ba.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WT32-ETH01-1ef9ee9ae7ba.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/WT32-ETH01-1ef9ee9ae7ba.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WT32-ETH01-1ef9ee9ae7ba.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/WT32-ETH01-fd8c49c7610b.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/WT32-ETH01-fd8c49c7610b.lbr",
+          "name": "WT32-ETH01",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/WT32-ETH01-fd8c49c7610b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WT32-ETH01-fd8c49c7610b.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/WT32-ETH01-fd8c49c7610b.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WT32-ETH01-fd8c49c7610b.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/WT32-ETH01-1ef9ee9ae7ba.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WT32-ETH01-1ef9ee9ae7ba.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/WT32-ETH01-fd8c49c7610b.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WT32-ETH01-fd8c49c7610b.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "66d84fd54fb5",
+      "name": "ESP32_DEVKIT_V1",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ESP32_DEVKIT_V1",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DEVKIT-V1-10715f1cf44d.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DEVKIT-V1-10715f1cf44d.lbr",
+          "name": "DEVKIT-V1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DEVKIT-V1-10715f1cf44d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKIT-V1-10715f1cf44d.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DEVKIT-V1-10715f1cf44d.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKIT-V1-10715f1cf44d.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/DEVKIT-V1-8f76775bfdb7.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/DEVKIT-V1-8f76775bfdb7.lbr",
+          "name": "DEVKIT_V1",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/DEVKIT-V1-8f76775bfdb7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKIT-V1-8f76775bfdb7.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/DEVKIT-V1-8f76775bfdb7.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKIT-V1-8f76775bfdb7.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DEVKIT-V1-10715f1cf44d.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEVKIT-V1-10715f1cf44d.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/DEVKIT-V1-8f76775bfdb7.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/DEVKIT-V1-8f76775bfdb7.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "0313416e573c",
+      "name": "ARYX5300",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "ARYX5300",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/ARYX5300-88afa153dd68.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/ARYX5300-88afa153dd68.lbr",
+          "name": "ARYX5300",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/ARYX5300-88afa153dd68.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARYX5300-88afa153dd68.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/ARYX5300-88afa153dd68.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARYX5300-88afa153dd68.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/ARYX5300-cd07b5ffab87.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/ARYX5300-cd07b5ffab87.lbr",
+          "name": "ARYX5300",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/ARYX5300-cd07b5ffab87.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARYX5300-cd07b5ffab87.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/ARYX5300-cd07b5ffab87.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARYX5300-cd07b5ffab87.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/ARYX5300-88afa153dd68.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/ARYX5300-88afa153dd68.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/ARYX5300-cd07b5ffab87.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/ARYX5300-cd07b5ffab87.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "3a927bb57c47",
+      "name": "DEVLAB_PUYA",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DEVLAB_PUYA",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.lbr",
+          "name": "PUYA_PY32F003L24D6TR",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/PUYA-PY32F003L24D6TR-bf5434877184.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/PUYA-PY32F003L24D6TR-bf5434877184.lbr",
+          "name": "PUYA_PY32F003L24D6TR",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/PUYA-PY32F003L24D6TR-e5f1381043a3.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/PUYA-PY32F003L24D6TR-bf5434877184.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "32320a9cfa5f",
+      "name": "DEVLAB_A_MIKROBUS",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DEVLAB_A_MIKROBUS",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DEV-A-MIKROBUS-0f403ce85491.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DEV-A-MIKROBUS-0f403ce85491.lbr",
+          "name": "DEV_A_MIKROBUS",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DEV-A-MIKROBUS-0f403ce85491.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-A-MIKROBUS-0f403ce85491.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DEV-A-MIKROBUS-0f403ce85491.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-A-MIKROBUS-0f403ce85491.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.lbr",
+          "name": "MIKROBUS_CASTELLATED",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DEV-A-MIKROBUS-0f403ce85491.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-A-MIKROBUS-0f403ce85491.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKROBUS-CASTELLATED-b0e117dd41f8.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "1c206e2eb858",
+      "name": "114993390_WIO-SX1262 .",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "114993390_WIO-SX1262",
+      "eagle_device": ".",
+      "symbols": [
+        {
+          "path": "eagle/symbols/114993390-f0c2d9a62dac.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/114993390-f0c2d9a62dac.lbr",
+          "name": "114993390",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/114993390-f0c2d9a62dac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/114993390-f0c2d9a62dac.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/114993390-f0c2d9a62dac.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/114993390-f0c2d9a62dac.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/WIO-SX1262-252a350eaf34.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/WIO-SX1262-252a350eaf34.lbr",
+          "name": "WIO-SX1262",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/WIO-SX1262-252a350eaf34.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-SX1262-252a350eaf34.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/WIO-SX1262-252a350eaf34.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-SX1262-252a350eaf34.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/114993390-f0c2d9a62dac.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/114993390-f0c2d9a62dac.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/WIO-SX1262-252a350eaf34.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-SX1262-252a350eaf34.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "4a0dd8505ffa",
+      "name": "DEVLAB-MIKROBUS_10P",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "DEVLAB-MIKROBUS_10P",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.lbr",
+          "name": "DEV_MIKROBUS_10P",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.lbr",
+          "name": "MIKRO_CASTELLATED_10P",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/DEV-MIKROBUS-10P-52dbf63e1d23.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/MIKRO-CASTELLATED-10P-5d24513f8824.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "09e0bf7336e1",
+      "name": "WIO-LR1121",
+      "source_lbr": {
+        "path": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/UNIT_Biblioteca_Modulos.lbr"
+      },
+      "eagle_deviceset": "WIO-LR1121",
+      "eagle_device": "",
+      "symbols": [
+        {
+          "path": "eagle/symbols/WIO-LR1121-16f304ad45dd.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/symbols/WIO-LR1121-16f304ad45dd.lbr",
+          "name": "WIO-LR1121",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/symbols/WIO-LR1121-16f304ad45dd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WIO-LR1121-16f304ad45dd.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/symbols/WIO-LR1121-16f304ad45dd.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WIO-LR1121-16f304ad45dd.png"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "eagle/footprints/WIO-LR1121-f7d7b997ba40.lbr",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/eagle/footprints/WIO-LR1121-f7d7b997ba40.lbr",
+          "name": "WIO-LR1121",
+          "source_lbr": "arduin_nano/UNIT_Biblioteca_Modulos.lbr",
+          "preview_2d": {
+            "path": "png/footprints/WIO-LR1121-f7d7b997ba40.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-LR1121-f7d7b997ba40.png",
+            "mime_type": "image/png"
+          },
+          "png_path": "png/footprints/WIO-LR1121-f7d7b997ba40.png",
+          "png_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-LR1121-f7d7b997ba40.png"
+        }
+      ],
+      "views_2d": {
+        "symbols": [
+          {
+            "path": "png/symbols/WIO-LR1121-16f304ad45dd.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/symbols/WIO-LR1121-16f304ad45dd.png",
+            "mime_type": "image/png"
+          }
+        ],
+        "footprints": [
+          {
+            "path": "png/footprints/WIO-LR1121-f7d7b997ba40.png",
+            "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/png/footprints/WIO-LR1121-f7d7b997ba40.png",
+            "mime_type": "image/png"
+          }
+        ]
+      }
+    },
+    {
+      "id": "d8cd5526665d",
+      "name": "ABX00028.step",
+      "source_step": {
+        "path": "arduin_nano/ABX00028 (1)/ABX00028.step",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/ABX00028%20%281%29/ABX00028.step"
+      },
+      "symbols": [
+        {
+          "path": "arduin_nano/ABX00028 (1)/ABX00028.kicad_sym",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/ABX00028%20%281%29/ABX00028.kicad_sym",
+          "svg_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/svg/symbols/ABX00028-ee7d40786382.svg",
+          "svg_path": "svg/symbols/ABX00028-ee7d40786382.svg"
+        }
+      ],
+      "footprints": [
+        {
+          "path": "arduin_nano/ABX00028 (1)/MODULE_ABX00028.kicad_mod",
+          "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/ABX00028%20%281%29/MODULE_ABX00028.kicad_mod",
+          "svg_url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/svg/footprints/MODULE_ABX00028-144e9c8fdce6.svg",
+          "svg_path": "svg/footprints/MODULE_ABX00028-144e9c8fdce6.svg"
+        }
+      ],
+      "eagle_libraries": [],
+      "svg": [],
+      "model_glb": {
+        "path": "models/ABX00028-d8cd5526665d.glb",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/models/ABX00028-d8cd5526665d.glb",
+        "source": "generated_from_step",
+        "linear_tolerance_mm": 0.025,
+        "angular_tolerance_rad": 0.025
+      }
+    },
+    {
+      "id": "00a769c62e6b",
+      "name": "unit_3d_v1_0_0_ue0106_I2C_qwiic_converter_module.step",
+      "source_step": {
+        "path": "arduin_nano/ue0106_unit_devlab_i2c_qwiic_converter_module_3d_models_release_v1_0_0/unit_3d_v1_0_0_ue0106_I2C_qwiic_converter_module.step",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/ue0106_unit_devlab_i2c_qwiic_converter_module_3d_models_release_v1_0_0/unit_3d_v1_0_0_ue0106_I2C_qwiic_converter_module.step"
+      },
+      "symbols": [],
+      "footprints": [],
+      "eagle_libraries": [],
+      "svg": [],
+      "model_glb": {
+        "path": "models/unit_3d_v1_0_0_ue0106_I2C_qwiic_converter_module-00a769c62e6b.glb",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/models/unit_3d_v1_0_0_ue0106_I2C_qwiic_converter_module-00a769c62e6b.glb",
+        "source": "generated_from_step",
+        "linear_tolerance_mm": 0.025,
+        "angular_tolerance_rad": 0.025
+      }
+    },
+    {
+      "id": "8ef6eb491f5c",
+      "name": "unit_3d_v_1_0_0_ue0113_Power_Supply_for_Breadboard.step",
+      "source_step": {
+        "path": "arduin_nano/ue0113_devLab_power_supply_for_breadboard_3d_models_release_v1_0_0/unit_3d_v_1_0_0_ue0113_Power_Supply_for_Breadboard.step",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/e470ff3c66ca0acd9fd965ae0d7faddae1c22928/arduin_nano/ue0113_devLab_power_supply_for_breadboard_3d_models_release_v1_0_0/unit_3d_v_1_0_0_ue0113_Power_Supply_for_Breadboard.step"
+      },
+      "symbols": [],
+      "footprints": [],
+      "eagle_libraries": [],
+      "svg": [],
+      "model_glb": {
+        "path": "models/unit_3d_v_1_0_0_ue0113_Power_Supply_for_Breadboard-8ef6eb491f5c.glb",
+        "url": "https://raw.githubusercontent.com/UNIT-Electronics-Labs/unit_electronics_cad_library/assets/models/unit_3d_v_1_0_0_ue0113_Power_Supply_for_Breadboard-8ef6eb491f5c.glb",
+        "source": "generated_from_step",
+        "linear_tolerance_mm": 0.025,
+        "angular_tolerance_rad": 0.025
+      }
+    }
+  ],
+  "unassociated": {
+    "eagle_libraries": [],
+    "svg": []
+  }
+}
