@@ -9,6 +9,7 @@ footprints are rendered to SVG previews for web clients.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import os
@@ -16,6 +17,7 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
@@ -31,9 +33,10 @@ def raw_url(repository: str, ref: str, relative_path: Path) -> str:
     return f"https://raw.githubusercontent.com/{repository}/{ref}/{encoded_path}"
 
 
-def normalised_name(path: Path) -> str:
+def normalised_name(path: Path | str) -> str:
     """Make supplier naming variants comparable (MODULE_X, module-x, etc.)."""
-    return "".join(character for character in path.stem.upper() if character.isalnum()).removeprefix("MODULE")
+    name = path.stem if isinstance(path, Path) else path
+    return "".join(character for character in name.upper() if character.isalnum()).removeprefix("MODULE")
 
 
 def associated_assets(step: Path, assets: list[Path], source_root: Path) -> list[Path]:
@@ -158,6 +161,121 @@ def asset_link(path: Path, source_root: Path, repository: str, source_ref: str) 
     return {"path": relative.as_posix(), "url": raw_url(repository, source_ref, relative)}
 
 
+def generated_link(path: Path, repository: str, assets_ref: str, **metadata: str) -> dict[str, str]:
+    """Build a link to a file written to the generated-assets branch."""
+    result = {"path": path.as_posix(), "url": raw_url(repository, assets_ref, path)}
+    result.update(metadata)
+    return result
+
+
+def safe_file_stem(value: str) -> str:
+    """Return a portable, readable filename fragment for an Eagle object name."""
+    cleaned = "".join(character if character.isalnum() else "-" for character in value).strip("-")
+    return cleaned or "unnamed"
+
+
+def write_eagle_fragment(root: ET.Element, section_name: str, element: ET.Element, target: Path) -> None:
+    """Write one package or symbol as a small, valid Eagle library file."""
+    source_drawing = root.find("./drawing")
+    if source_drawing is None:
+        raise ValueError("la biblioteca Eagle no contiene drawing")
+    fragment_root = ET.Element("eagle", root.attrib)
+    drawing = ET.SubElement(fragment_root, "drawing")
+    for section in ("settings", "grid", "layers"):
+        source_section = source_drawing.find(section)
+        if source_section is not None:
+            drawing.append(copy.deepcopy(source_section))
+    library = ET.SubElement(drawing, "library")
+    container = ET.SubElement(library, section_name)
+    container.append(copy.deepcopy(element))
+    target.parent.mkdir(parents=True, exist_ok=True)
+    target.write_bytes(b'<?xml version="1.0" encoding="utf-8"?>\n' + ET.tostring(fragment_root, encoding="utf-8"))
+
+
+def extract_lbr_components(
+    source: Path,
+    source_root: Path,
+    output: Path,
+    repository: str,
+    source_ref: str,
+    assets_ref: str,
+) -> list[dict[str, object]]:
+    """Extract Eagle symbols and footprints, grouped by their device definitions.
+
+    Eagle stores a footprint in ``packages`` and a schematic symbol in
+    ``symbols``.  A ``deviceset`` maps one or more symbols to one or more
+    package variants.  The extracted XML fragments are intentionally exact
+    copies of those elements so consumers can inspect or import them without
+    downloading and searching the complete library.
+    """
+    try:
+        root = ET.parse(source).getroot()
+    except (ET.ParseError, OSError) as error:
+        print(f"No se pudo leer {source.relative_to(source_root)}: {error}", file=sys.stderr)
+        return []
+
+    library = root.find("./drawing/library")
+    if library is None:
+        print(f"{source.relative_to(source_root)} no contiene una biblioteca Eagle", file=sys.stderr)
+        return []
+
+    packages = {element.get("name", ""): element for element in library.findall("./packages/package")}
+    symbols = {element.get("name", ""): element for element in library.findall("./symbols/symbol")}
+    source_relative = source.relative_to(source_root)
+    source_asset = asset_link(source, source_root, repository, source_ref)
+    fragment_cache: dict[tuple[str, str], dict[str, str]] = {}
+
+    def fragment(kind: str, name: str, element: ET.Element) -> dict[str, str]:
+        key = (kind, name)
+        if key not in fragment_cache:
+            identifier = hashlib.sha256(f"{source_relative}:{kind}:{name}".encode()).hexdigest()[:12]
+            path = Path("eagle") / kind / f"{safe_file_stem(name)}-{identifier}.lbr"
+            section_name = "symbols" if kind == "symbols" else "packages"
+            write_eagle_fragment(root, section_name, element, output / path)
+            fragment_cache[key] = generated_link(path, repository, assets_ref, name=name, source_lbr=source_asset["path"])
+        return fragment_cache[key]
+
+    components: list[dict[str, object]] = []
+    for deviceset in library.findall("./devicesets/deviceset"):
+        deviceset_name = deviceset.get("name", "Sin nombre")
+        symbol_names = [gate.get("symbol", "") for gate in deviceset.findall("./gates/gate")]
+        component_symbols = [fragment("symbols", name, symbols[name]) for name in dict.fromkeys(symbol_names) if name in symbols]
+        devices = deviceset.findall("./devices/device") or [None]
+        for device in devices:
+            device_name = "" if device is None else device.get("name", "")
+            package_name = "" if device is None else device.get("package", "")
+            component_name = deviceset_name if not device_name else f"{deviceset_name} {device_name}"
+            identifier = hashlib.sha256(
+                f"{source_relative}:{deviceset_name}:{device_name}:{package_name}".encode(),
+            ).hexdigest()[:12]
+            component: dict[str, object] = {
+                "id": identifier,
+                "name": component_name,
+                "source_lbr": source_asset,
+                "eagle_deviceset": deviceset_name,
+                "eagle_device": device_name,
+                "symbols": component_symbols,
+                "footprints": [fragment("footprints", package_name, packages[package_name])]
+                if package_name in packages else [],
+            }
+            if package_name and package_name not in packages:
+                component["footprint_error"] = f"No se encontró el package Eagle {package_name!r}"
+            components.append(component)
+
+    # Libraries with packages/symbols but no devicesets remain discoverable.
+    if not components:
+        for package_name, package in packages.items():
+            identifier = hashlib.sha256(f"{source_relative}:package:{package_name}".encode()).hexdigest()[:12]
+            components.append({
+                "id": identifier,
+                "name": package_name,
+                "source_lbr": source_asset,
+                "symbols": [],
+                "footprints": [fragment("footprints", package_name, package)],
+            })
+    return components
+
+
 def render_link(
     kind: str,
     source: Path,
@@ -236,27 +354,17 @@ def main() -> int:
         for asset in source_files[".kicad_mod"]
     }
 
-    components: list[dict[str, object]] = []
+    step_records: list[dict[str, object]] = []
     for step in step_files:
         relative = step.relative_to(source_root)
         identifier = hashlib.sha256(relative.as_posix().encode()).hexdigest()[:12]
         model_path = Path("models") / f"{step.stem}-{identifier}.glb"
-        component: dict[str, object] = {
-            "id": identifier,
-            "source_step": asset_link(step, source_root, arguments.repository, arguments.source_ref),
-            "symbols": [symbol_assets[asset]
-                        for asset in associated_assets(step, source_files[".kicad_sym"], source_root)],
-            "footprints": [footprint_assets[asset]
-                           for asset in associated_assets(step, source_files[".kicad_mod"], source_root)],
-            "eagle_libraries": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
-                                for asset in associated_assets(step, source_files[".lbr"], source_root)],
-            "svg": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
-                    for asset in associated_assets(step, source_files[".svg"], source_root)],
-        }
+        record: dict[str, object] = {"step": step, "source_step": asset_link(step, source_root, arguments.repository, arguments.source_ref)}
         source_glb = associated_assets(step, source_files[".glb"], source_root)
         if source_glb:
+            (output / model_path).parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(source_glb[0], output / model_path)
-            component["model_glb"] = {
+            record["model_glb"] = {
                 "path": model_path.as_posix(),
                 "url": raw_url(arguments.repository, arguments.assets_ref, model_path),
                 "source": "supplier_glb",
@@ -268,7 +376,7 @@ def main() -> int:
         else:
             try:
                 convert_to_glb(step, output / model_path, arguments.linear_tolerance, arguments.angular_tolerance)
-                component["model_glb"] = {
+                record["model_glb"] = {
                     "path": model_path.as_posix(),
                     "url": raw_url(arguments.repository, arguments.assets_ref, model_path),
                     "source": "generated_from_step",
@@ -277,12 +385,67 @@ def main() -> int:
                 }
                 print(f"GLB generado: {relative}")
             except Exception as error:
-                component["model_error"] = str(error)
+                record["model_error"] = str(error)
                 print(f"No se pudo convertir {relative}: {error}", file=sys.stderr)
+        step_records.append(record)
+
+    def matching_step(names: list[str]) -> dict[str, object] | None:
+        normalised_names = {normalised_name(name) for name in names if name}
+        for record in step_records:
+            if normalised_name(record["step"]) in normalised_names:
+                return record
+        return None
+
+    components: list[dict[str, object]] = []
+    lbr_components: list[dict[str, object]] = []
+    for library in source_files[".lbr"]:
+        lbr_components.extend(extract_lbr_components(
+            library, source_root, output, arguments.repository,
+            arguments.source_ref, arguments.assets_ref,
+        ))
+
+    for component in lbr_components:
+        footprint_names = [asset.get("name", "") for asset in component.get("footprints", [])]
+        step_record = matching_step([
+            str(component.get("name", "")),
+            str(component.get("eagle_deviceset", "")),
+            str(component.get("eagle_device", "")),
+            *footprint_names,
+        ])
+        if step_record:
+            component["source_step"] = step_record["source_step"]
+            if "model_glb" in step_record:
+                component["model_glb"] = step_record["model_glb"]
+            if "model_error" in step_record:
+                component["model_error"] = step_record["model_error"]
+        components.append(component)
+
+    matched_steps = {record["step"] for record in step_records if any(component.get("source_step") == record["source_step"] for component in lbr_components)}
+    for record in step_records:
+        step = record["step"]
+        if step in matched_steps:
+            continue
+        component: dict[str, object] = {
+            "id": hashlib.sha256(step.relative_to(source_root).as_posix().encode()).hexdigest()[:12],
+            "name": step.name,
+            "source_step": record["source_step"],
+            "symbols": [symbol_assets[asset]
+                        for asset in associated_assets(step, source_files[".kicad_sym"], source_root)],
+            "footprints": [footprint_assets[asset]
+                           for asset in associated_assets(step, source_files[".kicad_mod"], source_root)],
+            "eagle_libraries": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
+                                for asset in associated_assets(step, source_files[".lbr"], source_root)],
+            "svg": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
+                    for asset in associated_assets(step, source_files[".svg"], source_root)],
+        }
+        if "model_glb" in record:
+            component["model_glb"] = record["model_glb"]
+        if "model_error" in record:
+            component["model_error"] = record["model_error"]
         components.append(component)
 
     manifest = {
-        "schema_version": 1,
+        "schema_version": 2,
         "generated_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "repository": arguments.repository,
         "source_ref": arguments.source_ref,
@@ -291,7 +454,10 @@ def main() -> int:
         "components": components,
         "unassociated": {
             "eagle_libraries": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
-                                for asset in source_files[".lbr"]],
+                                for asset in source_files[".lbr"] if not any(
+                                    component.get("source_lbr", {}).get("path") == asset.relative_to(source_root).as_posix()
+                                    for component in components
+                                )],
             "svg": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
                     for asset in source_files[".svg"]],
         },

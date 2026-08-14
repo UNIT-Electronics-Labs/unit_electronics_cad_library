@@ -3,46 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Catálogo de enlaces CAD de UNIT Electronics">
-  <title>Catálogo CAD | UNIT Electronics</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="description" content="Enlaces a bibliotecas y modelos CAD de UNIT Electronics">
+  <title>Enlaces CAD | UNIT Electronics</title>
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="./" aria-label="Inicio del catálogo">
-      <span class="brand-mark">UE</span>
-      <span>Unit Electronics <small>CAD Library</small></span>
-    </a>
-    <button id="copy-catalog" class="button button-quiet" type="button">Copiar catálogo JSON</button>
+  <header>
+    <h1>UNIT Electronics — enlaces CAD</h1>
+    <p>Huella, símbolo, STEP y GLB extraídos o vinculados desde las bibliotecas publicadas.</p>
+    <p><a id="open-catalog" href="#">Abrir catalog.json</a></p>
   </header>
   <main>
-    <section class="hero">
-      <p class="eyebrow">Biblioteca para integraciones</p>
-      <h1>Enlaces CAD, listos<br><em>para copiar y usar.</em></h1>
-      <p class="intro">Previsualiza símbolos y huellas, o copia en un clic el enlace que necesitas para tu aplicación.</p>
-      <div class="hero-meta">
-        <p id="status" role="status">Cargando catálogo…</p>
-        <span class="meta-dot" aria-hidden="true"></span>
-        <a id="open-catalog" href="#">Abrir JSON</a>
-      </div>
-    </section>
-    <section class="catalog-section" aria-labelledby="catalog-title">
-      <div class="catalog-toolbar">
-        <div>
-          <p class="eyebrow">Componentes publicados</p>
-          <h2 id="catalog-title">Explora la biblioteca</h2>
-        </div>
-        <label class="search">
-          <span class="visually-hidden">Buscar componente</span>
-          <input id="search" type="search" placeholder="Buscar por nombre…" autocomplete="off">
-        </label>
-      </div>
-      <section id="catalog" class="catalog" aria-live="polite"></section>
-    </section>
+    <p id="status" role="status">Cargando catálogo…</p>
+    <label>
+      Buscar componente
+      <input id="search" type="search" autocomplete="off">
+    </label>
+    <section id="catalog" aria-live="polite"></section>
   </main>
-  <template id="empty-template">
-    <p class="empty">No hay componentes publicados todavía.</p>
-  </template>
+  <template id="empty-template"><p>No hay componentes publicados todavía.</p></template>
   <script src="app.js" defer></script>
 </body>
 </html>
