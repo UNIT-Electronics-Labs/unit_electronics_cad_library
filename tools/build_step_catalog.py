@@ -258,14 +258,17 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     pad_colour = "#ff6b00"
     image = Image.new("RGB", (width, height), background)
     draw = ImageDraw.Draw(image)
-    font_size = max(11, min(17, round(scale * 0.38)))
-    try:
-        font = ImageFont.truetype("DejaVuSans-Bold.ttf", font_size)
-    except OSError:
+    def bold_font(size: int) -> ImageFont.ImageFont:
         try:
-            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+            return ImageFont.truetype("DejaVuSans-Bold.ttf", size)
         except OSError:
-            font = ImageFont.load_default()
+            try:
+                return ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", size)
+            except OSError:
+                return ImageFont.load_default()
+
+    font = bold_font(max(24, min(36, round(scale * 0.9))) if is_symbol else max(11, min(17, round(scale * 0.38))))
+    title_font = bold_font(max(28, min(42, round(scale * 1.1))))
 
     def point(x: float, y: float) -> tuple[float, float]:
         return ((x - min_x + margin_mm) * scale, (max_y - y + margin_mm) * scale)
@@ -274,6 +277,8 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
         return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
 
     def line_width(item: ET.Element, fallback: float = 0.15) -> int:
+        if is_symbol:
+            return max(3, round(eagle_number(item, "width", fallback) * scale * 0.8))
         return max(1, round(eagle_number(item, "width", fallback) * scale * 0.35))
 
     def pin_length(item: ET.Element) -> float:
@@ -321,12 +326,16 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             rotation = item.get("rot", "R0")
             direction = rotation[1:]
             dx, dy = {"0": (length, 0), "90": (0, length), "180": (-length, 0), "270": (0, -length)}.get(direction, (length, 0))
-            draw.line((point(x, y), point(x + dx, y + dy)), fill=foreground, width=1)
+            draw.line((point(x, y), point(x + dx, y + dy)), fill=foreground, width=max(2, round(scale * 0.11)))
             px, py = point(x, y)
+            connector_length = max(8, round(scale * 0.8))
+            connector_thickness = max(3, round(scale * 0.28))
             if direction in {"0", "180"}:
-                draw.rectangle((px - 4, py - 2, px + 4, py + 2), fill=pad_colour)
+                draw.rectangle((px - connector_length / 2, py - connector_thickness / 2,
+                                px + connector_length / 2, py + connector_thickness / 2), fill=pad_colour)
             else:
-                draw.rectangle((px - 2, py - 4, px + 2, py + 4), fill=pad_colour)
+                draw.rectangle((px - connector_thickness / 2, py - connector_length / 2,
+                                px + connector_thickness / 2, py + connector_length / 2), fill=pad_colour)
             label = item.get("name", "")
             label_x, label_y = point(x + dx * 0.92, y + dy * 0.92)
             label_anchor = {"0": "rs", "180": "ls", "90": "ms", "270": "ma"}.get(direction, "rs")
@@ -336,6 +345,10 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             label = item.text or ""
             if not label.startswith(">"):
                 draw.text((x, y), label, fill=text_colour, font=font, anchor="ls")
+
+    if is_symbol and element.get("name"):
+        center_x, center_y = point((min_x + max_x) / 2, (min_y + max_y) / 2)
+        draw.text((center_x, center_y), element.get("name", ""), fill="#111827", font=title_font, anchor="mm")
 
     target.parent.mkdir(parents=True, exist_ok=True)
     image.save(target, "PNG", optimize=True)
