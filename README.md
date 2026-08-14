@@ -2,9 +2,9 @@
 
 Este repositorio publica una página HTML sencilla de enlaces y no modifica los archivos CAD fuente. Al hacer push a `main`, el workflow crea dos recursos para tu API:
 
-- Una rama `assets` con `catalog.json`, los modelos `.glb` en color y vistas `.svg` generadas de símbolos y huellas KiCad.
+- Una rama `assets` con `catalog.json`, los modelos `.glb` en color, vistas `.svg` de KiCad y vistas `.png` extraídas de símbolos y huellas Eagle.
 - Enlaces directos a los archivos originales versionados: STEP, símbolos KiCad (`.kicad_sym`), huellas KiCad (`.kicad_mod`), librerías Eagle (`.lbr`) y SVG que ya existan en el repositorio.
-- Para cada `.lbr`, bibliotecas Eagle mínimas de cada símbolo y de cada `package` (huella), agrupadas según sus `devicesets`. Si un STEP tiene el mismo nombre que el componente, también queda vinculado con su GLB.
+- Para cada `.lbr`, bibliotecas Eagle mínimas y una vista `.png` de cada símbolo y de cada `package` (huella), agrupadas según sus `devicesets`.
 
 Los archivos fuente no se modifican. Cuando existe un GLB suministrado junto al STEP, el catálogo lo copia a `assets/models/` para mantener sus materiales, colores y enlace estable; de lo contrario, convierte el STEP a GLB con colores de superficie e instancia. El workflow también genera SVG de cada `.kicad_sym` y `.kicad_mod` con `kicad-cli`. Los SVG generados quedan en la rama `assets`.
 
@@ -26,8 +26,8 @@ El JSON tiene esta forma (los componentes Eagle usan `source_lbr`):
     {
       "name": "Nombre del deviceset Eagle",
       "source_lbr": { "url": "https://raw.githubusercontent.com/.../archivo.lbr" },
-      "symbols": [{ "name": "Símbolo", "url": "https://raw.githubusercontent.com/.../assets/eagle/symbols/simbolo.lbr" }],
-      "footprints": [{ "name": "Huella", "url": "https://raw.githubusercontent.com/.../assets/eagle/footprints/huella.lbr" }],
+      "symbols": [{ "name": "Símbolo", "url": "https://raw.githubusercontent.com/.../assets/eagle/symbols/simbolo.lbr", "png_url": "https://raw.githubusercontent.com/.../assets/png/symbols/simbolo.png" }],
+      "footprints": [{ "name": "Huella", "url": "https://raw.githubusercontent.com/.../assets/eagle/footprints/huella.lbr", "png_url": "https://raw.githubusercontent.com/.../assets/png/footprints/huella.png" }],
       "source_step": { "url": "https://raw.githubusercontent.com/.../archivo.step" },
       "model_glb": { "url": "https://raw.githubusercontent.com/.../assets/models/archivo.glb" }
     }
@@ -56,7 +56,9 @@ const component = catalog.components[0];
 
 console.log(component.source_lbr.url);        // .lbr original
 console.log(component.symbols[0].url);        // biblioteca Eagle mínima del símbolo
+console.log(component.symbols[0].png_url);    // vista PNG del símbolo
 console.log(component.footprints[0].url);     // biblioteca Eagle mínima de la huella
+console.log(component.footprints[0].png_url); // vista PNG de la huella
 console.log(component.source_step?.url);      // STEP asociado si existe
 console.log(component.model_glb.url);        // GLB de alta calidad
 ```
@@ -71,4 +73,4 @@ python tools/build_step_catalog.py \
   --repository <USUARIO>/<REPOSITORIO> --source-ref main
 ```
 
-El resultado local queda en `generated-assets/catalog.json`, `generated-assets/eagle/`, `generated-assets/models/` y `generated-assets/svg/`. Un `.lbr` contiene símbolos y huellas, pero no contiene un STEP ni un GLB: el generador solo los vincula si encuentra un STEP con el mismo nombre en el repositorio, y convierte o copia su GLB como antes.
+El resultado local queda en `generated-assets/catalog.json`, `generated-assets/eagle/`, `generated-assets/png/`, `generated-assets/models/` y `generated-assets/svg/`. Un `.lbr` contiene símbolos y huellas, pero no contiene un STEP ni un GLB.

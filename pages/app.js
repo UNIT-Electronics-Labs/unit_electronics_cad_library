@@ -20,6 +20,9 @@ function appendAssets(list, label, assets) {
   for (const asset of assets ?? []) {
     const item = document.createElement("li");
     item.append(link(`${label}: ${asset.name ?? asset.path}`, asset));
+    if (asset.png_url) {
+      item.append(" · ", link("Vista PNG", { url: asset.png_url }));
+    }
     list.append(item);
   }
 }

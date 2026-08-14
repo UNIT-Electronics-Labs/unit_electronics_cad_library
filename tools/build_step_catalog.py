@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 """Build a machine-readable component manifest and high-quality GLB assets.
 
-Source CAD files are never changed.  The manifest links directly to each
-versioned source; STEP files are tessellated to GLB and KiCad symbols and
-footprints are rendered to SVG previews for web clients.
+Source CAD files are never changed. The manifest links directly to each
+versioned source; STEP files are tessellated to GLB, KiCad assets are rendered
+to SVG, and Eagle symbols and footprints are rendered to PNG previews.
 """
 
 from __future__ import annotations
@@ -21,6 +21,8 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from pathlib import Path
 from urllib.parse import quote
+
+from PIL import Image, ImageDraw, ImageFont
 
 
 STEP_EXTENSIONS = {".step", ".stp"}
@@ -192,6 +194,121 @@ def write_eagle_fragment(root: ET.Element, section_name: str, element: ET.Elemen
     target.write_bytes(b'<?xml version="1.0" encoding="utf-8"?>\n' + ET.tostring(fragment_root, encoding="utf-8"))
 
 
+def eagle_number(element: ET.Element, attribute: str, default: float = 0.0) -> float:
+    """Read an Eagle numeric attribute, accepting absent optional values."""
+    try:
+        return float(element.get(attribute, default))
+    except ValueError:
+        return default
+
+
+def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
+    """Estimate the drawing bounds of an Eagle package or symbol in millimetres."""
+    points: list[tuple[float, float]] = []
+
+    def add(x: float, y: float, radius: float = 0) -> None:
+        points.extend(((x - radius, y - radius), (x + radius, y + radius)))
+
+    for item in element.iter():
+        tag = item.tag
+        if tag == "wire":
+            add(eagle_number(item, "x1"), eagle_number(item, "y1"), eagle_number(item, "width") / 2)
+            add(eagle_number(item, "x2"), eagle_number(item, "y2"), eagle_number(item, "width") / 2)
+        elif tag in {"circle", "pad", "hole"}:
+            radius = eagle_number(item, "radius")
+            if tag == "pad":
+                radius = max(radius, eagle_number(item, "diameter", eagle_number(item, "drill") * 1.8) / 2)
+            if tag == "hole":
+                radius = eagle_number(item, "drill") / 2
+            add(eagle_number(item, "x"), eagle_number(item, "y"), radius)
+        elif tag == "smd":
+            add(eagle_number(item, "x"), eagle_number(item, "y"), max(eagle_number(item, "dx"), eagle_number(item, "dy")) / 2)
+        elif tag == "rectangle":
+            add(eagle_number(item, "x1"), eagle_number(item, "y1"))
+            add(eagle_number(item, "x2"), eagle_number(item, "y2"))
+        elif tag in {"vertex", "text", "pin"}:
+            add(eagle_number(item, "x"), eagle_number(item, "y"))
+    if not points:
+        return (-5, -5, 5, 5)
+    xs, ys = zip(*points)
+    return min(xs), min(ys), max(xs), max(ys)
+
+
+def render_eagle_png(element: ET.Element, target: Path) -> None:
+    """Render a compact visual preview of an Eagle symbol or footprint as PNG."""
+    min_x, min_y, max_x, max_y = eagle_bounds(element)
+    margin_mm = 1.5
+    width_mm = max(max_x - min_x + margin_mm * 2, 4)
+    height_mm = max(max_y - min_y + margin_mm * 2, 4)
+    scale = min(36, 960 / max(width_mm, height_mm))
+    width = max(160, round(width_mm * scale))
+    height = max(160, round(height_mm * scale))
+    image = Image.new("RGB", (width, height), "white")
+    draw = ImageDraw.Draw(image)
+    font = ImageFont.load_default()
+
+    def point(x: float, y: float) -> tuple[float, float]:
+        return ((x - min_x + margin_mm) * scale, (max_y - y + margin_mm) * scale)
+
+    def box(first: tuple[float, float], second: tuple[float, float]) -> tuple[float, float, float, float]:
+        return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
+
+    def line_width(item: ET.Element, fallback: float = 0.15) -> int:
+        return max(1, round(eagle_number(item, "width", fallback) * scale))
+
+    for item in element.iter():
+        tag = item.tag
+        if tag == "wire":
+            draw.line((point(eagle_number(item, "x1"), eagle_number(item, "y1")),
+                       point(eagle_number(item, "x2"), eagle_number(item, "y2"))), fill="#1f2937", width=line_width(item))
+        elif tag == "circle":
+            x, y, radius = eagle_number(item, "x"), eagle_number(item, "y"), eagle_number(item, "radius")
+            left_top = point(x - radius, y + radius)
+            right_bottom = point(x + radius, y - radius)
+            draw.ellipse((left_top, right_bottom), outline="#1f2937", width=line_width(item))
+        elif tag == "rectangle":
+            draw.rectangle(box(point(eagle_number(item, "x1"), eagle_number(item, "y1")),
+                               point(eagle_number(item, "x2"), eagle_number(item, "y2"))), outline="#1f2937", width=1)
+        elif tag == "polygon":
+            vertices = [point(eagle_number(vertex, "x"), eagle_number(vertex, "y")) for vertex in item.findall("vertex")]
+            if len(vertices) > 2:
+                draw.polygon(vertices, fill="#d1d5db", outline="#1f2937")
+        elif tag == "smd":
+            x, y = eagle_number(item, "x"), eagle_number(item, "y")
+            dx, dy = eagle_number(item, "dx"), eagle_number(item, "dy")
+            draw.rectangle((point(x - dx / 2, y + dy / 2), point(x + dx / 2, y - dy / 2)), fill="#d97706")
+        elif tag == "pad":
+            x, y = eagle_number(item, "x"), eagle_number(item, "y")
+            drill = eagle_number(item, "drill")
+            diameter = eagle_number(item, "diameter", drill * 1.8)
+            radius = max(diameter / 2, 0.4)
+            if item.get("shape") == "square":
+                draw.rectangle(box(point(x - radius, y + radius), point(x + radius, y - radius)), fill="#d97706")
+            else:
+                draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), fill="#d97706")
+            if drill:
+                drill_radius = drill / 2
+                draw.ellipse((point(x - drill_radius, y + drill_radius), point(x + drill_radius, y - drill_radius)), fill="white")
+        elif tag == "hole":
+            x, y, radius = eagle_number(item, "x"), eagle_number(item, "y"), eagle_number(item, "drill") / 2
+            draw.ellipse((point(x - radius, y + radius), point(x + radius, y - radius)), outline="#1f2937", width=1)
+        elif tag == "pin":
+            x, y = eagle_number(item, "x"), eagle_number(item, "y")
+            length = eagle_number(item, "length", 2.54)
+            rotation = item.get("rot", "R0")
+            direction = rotation[1:]
+            dx, dy = {"0": (length, 0), "90": (0, length), "180": (-length, 0), "270": (0, -length)}.get(direction, (length, 0))
+            draw.line((point(x, y), point(x + dx, y + dy)), fill="#1f2937", width=1)
+            px, py = point(x, y)
+            draw.ellipse((px - 2, py - 2, px + 2, py + 2), outline="#1f2937", width=1)
+        elif tag == "text":
+            x, y = point(eagle_number(item, "x"), eagle_number(item, "y"))
+            draw.text((x, y), item.text or "", fill="#1f2937", font=font, anchor="ls")
+
+    target.parent.mkdir(parents=True, exist_ok=True)
+    image.save(target, "PNG", optimize=True)
+
+
 def extract_lbr_components(
     source: Path,
     source_root: Path,
@@ -232,7 +349,12 @@ def extract_lbr_components(
             path = Path("eagle") / kind / f"{safe_file_stem(name)}-{identifier}.lbr"
             section_name = "symbols" if kind == "symbols" else "packages"
             write_eagle_fragment(root, section_name, element, output / path)
-            fragment_cache[key] = generated_link(path, repository, assets_ref, name=name, source_lbr=source_asset["path"])
+            png_path = Path("png") / kind / f"{safe_file_stem(name)}-{identifier}.png"
+            render_eagle_png(element, output / png_path)
+            fragment_cache[key] = generated_link(
+                path, repository, assets_ref, name=name, source_lbr=source_asset["path"],
+                png_path=png_path.as_posix(), png_url=raw_url(repository, assets_ref, png_path),
+            )
         return fragment_cache[key]
 
     components: list[dict[str, object]] = []
@@ -389,42 +511,15 @@ def main() -> int:
                 print(f"No se pudo convertir {relative}: {error}", file=sys.stderr)
         step_records.append(record)
 
-    def matching_step(names: list[str]) -> dict[str, object] | None:
-        normalised_names = {normalised_name(name) for name in names if name}
-        for record in step_records:
-            if normalised_name(record["step"]) in normalised_names:
-                return record
-        return None
-
     components: list[dict[str, object]] = []
-    lbr_components: list[dict[str, object]] = []
     for library in source_files[".lbr"]:
-        lbr_components.extend(extract_lbr_components(
+        components.extend(extract_lbr_components(
             library, source_root, output, arguments.repository,
             arguments.source_ref, arguments.assets_ref,
         ))
 
-    for component in lbr_components:
-        footprint_names = [asset.get("name", "") for asset in component.get("footprints", [])]
-        step_record = matching_step([
-            str(component.get("name", "")),
-            str(component.get("eagle_deviceset", "")),
-            str(component.get("eagle_device", "")),
-            *footprint_names,
-        ])
-        if step_record:
-            component["source_step"] = step_record["source_step"]
-            if "model_glb" in step_record:
-                component["model_glb"] = step_record["model_glb"]
-            if "model_error" in step_record:
-                component["model_error"] = step_record["model_error"]
-        components.append(component)
-
-    matched_steps = {record["step"] for record in step_records if any(component.get("source_step") == record["source_step"] for component in lbr_components)}
     for record in step_records:
         step = record["step"]
-        if step in matched_steps:
-            continue
         component: dict[str, object] = {
             "id": hashlib.sha256(step.relative_to(source_root).as_posix().encode()).hexdigest()[:12],
             "name": step.name,
