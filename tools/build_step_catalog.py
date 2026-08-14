@@ -258,6 +258,10 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     pad_colour = "#ff6b00"
     image = Image.new("RGB", (width, height), background)
     draw = ImageDraw.Draw(image)
+
+    def point(x: float, y: float) -> tuple[float, float]:
+        return ((x - min_x + margin_mm) * scale, (max_y - y + margin_mm) * scale)
+
     def bold_font(size: int) -> ImageFont.ImageFont:
         try:
             return ImageFont.truetype("DejaVuSans-Bold.ttf", size)
@@ -267,11 +271,19 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             except OSError:
                 return ImageFont.load_default()
 
-    font = bold_font(max(24, min(36, round(scale * 0.9))) if is_symbol else max(11, min(17, round(scale * 0.38))))
-    title_font = bold_font(max(28, min(42, round(scale * 1.1))))
-
-    def point(x: float, y: float) -> tuple[float, float]:
-        return ((x - min_x + margin_mm) * scale, (max_y - y + margin_mm) * scale)
+    pin_coordinates = [point(eagle_number(item, "x"), eagle_number(item, "y")) for item in element.findall("pin")]
+    pin_distances = [
+        abs(first[axis] - second[axis])
+        for index, first in enumerate(pin_coordinates)
+        for second in pin_coordinates[index + 1:]
+        for axis in (0, 1)
+        if abs(first[axis] - second[axis]) > 1
+    ]
+    min_pin_pitch = min(pin_distances, default=60)
+    pin_font_size = max(10, min(36, round(min_pin_pitch * 0.62)))
+    font = bold_font(pin_font_size if is_symbol else max(11, min(17, round(scale * 0.38))))
+    body_font = bold_font(max(12, min(22, round(scale * 0.65))))
+    title_font = bold_font(max(18, min(36, round(scale * 0.95))))
 
     def box(first: tuple[float, float], second: tuple[float, float]) -> tuple[float, float, float, float]:
         return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
@@ -344,9 +356,13 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             x, y = point(eagle_number(item, "x"), eagle_number(item, "y"))
             label = item.text or ""
             if not label.startswith(">"):
-                draw.text((x, y), label, fill=text_colour, font=font, anchor="ls")
+                draw.text((x, y), label, fill=text_colour, font=body_font if is_symbol else font, anchor="ls")
 
-    if is_symbol and element.get("name"):
+    has_design_text = any(
+        (item.text or "").strip() and not (item.text or "").startswith(">")
+        for item in element.findall("text")
+    )
+    if is_symbol and element.get("name") and not has_design_text:
         center_x, center_y = point((min_x + max_x) / 2, (min_y + max_y) / 2)
         draw.text((center_x, center_y), element.get("name", ""), fill="#111827", font=title_font, anchor="mm")
 
