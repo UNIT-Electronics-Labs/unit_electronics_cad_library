@@ -255,11 +255,16 @@ def main() -> int:
         }
         source_glb = associated_assets(step, source_files[".glb"], source_root)
         if source_glb:
+            shutil.copy2(source_glb[0], output / model_path)
             component["model_glb"] = {
-                **asset_link(source_glb[0], source_root, arguments.repository, arguments.source_ref),
+                "path": model_path.as_posix(),
+                "url": raw_url(arguments.repository, arguments.assets_ref, model_path),
                 "source": "supplier_glb",
+                "source_url": asset_link(
+                    source_glb[0], source_root, arguments.repository, arguments.source_ref,
+                )["url"],
             }
-            print(f"GLB original conservado: {source_glb[0].relative_to(source_root)}")
+            print(f"GLB original publicado: {source_glb[0].relative_to(source_root)}")
         else:
             try:
                 convert_to_glb(step, output / model_path, arguments.linear_tolerance, arguments.angular_tolerance)
