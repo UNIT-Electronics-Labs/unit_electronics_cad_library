@@ -26,8 +26,9 @@ El JSON tiene esta forma (los componentes Eagle usan `source_lbr`):
     {
       "name": "Nombre del deviceset Eagle",
       "source_lbr": { "url": "https://raw.githubusercontent.com/.../archivo.lbr" },
-      "symbols": [{ "name": "Símbolo", "url": "https://raw.githubusercontent.com/.../assets/eagle/symbols/simbolo.lbr", "png_url": "https://raw.githubusercontent.com/.../assets/png/symbols/simbolo.png" }],
-      "footprints": [{ "name": "Huella", "url": "https://raw.githubusercontent.com/.../assets/eagle/footprints/huella.lbr", "png_url": "https://raw.githubusercontent.com/.../assets/png/footprints/huella.png" }],
+      "symbols": [{ "name": "Símbolo", "url": "https://raw.githubusercontent.com/.../assets/eagle/symbols/simbolo.lbr", "preview_2d": { "url": "https://raw.githubusercontent.com/.../assets/png/symbols/simbolo.png" } }],
+      "footprints": [{ "name": "Huella", "url": "https://raw.githubusercontent.com/.../assets/eagle/footprints/huella.lbr", "preview_2d": { "url": "https://raw.githubusercontent.com/.../assets/png/footprints/huella.png" } }],
+      "views_2d": { "symbols": [{ "url": "https://raw.githubusercontent.com/.../assets/png/symbols/simbolo.png" }], "footprints": [{ "url": "https://raw.githubusercontent.com/.../assets/png/footprints/huella.png" }] },
       "source_step": { "url": "https://raw.githubusercontent.com/.../archivo.step" },
       "model_glb": { "url": "https://raw.githubusercontent.com/.../assets/models/archivo.glb" }
     }
@@ -56,9 +57,9 @@ const component = catalog.components[0];
 
 console.log(component.source_lbr.url);        // .lbr original
 console.log(component.symbols[0].url);        // biblioteca Eagle mínima del símbolo
-console.log(component.symbols[0].png_url);    // vista PNG del símbolo
+console.log(component.symbols[0].preview_2d.url); // vista PNG del símbolo
 console.log(component.footprints[0].url);     // biblioteca Eagle mínima de la huella
-console.log(component.footprints[0].png_url); // vista PNG de la huella
+console.log(component.footprints[0].preview_2d.url); // vista PNG de la huella
 console.log(component.source_step?.url);      // STEP asociado si existe
 console.log(component.model_glb.url);        // GLB de alta calidad
 ```

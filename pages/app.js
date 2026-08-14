@@ -20,8 +20,19 @@ function appendAssets(list, label, assets) {
   for (const asset of assets ?? []) {
     const item = document.createElement("li");
     item.append(link(`${label}: ${asset.name ?? asset.path}`, asset));
-    if (asset.png_url) {
-      item.append(" · ", link("Vista PNG", { url: asset.png_url }));
+    const preview = asset.preview_2d ?? (asset.png_url ? { url: asset.png_url } : null);
+    if (preview) {
+      item.append(" · ", link("Abrir PNG", preview));
+      const details = document.createElement("details");
+      const summary = document.createElement("summary");
+      summary.textContent = "Desplegar vista 2D";
+      const image = document.createElement("img");
+      image.src = preview.url;
+      image.alt = `Vista 2D: ${asset.name ?? asset.path}`;
+      image.width = 480;
+      image.loading = "lazy";
+      details.append(summary, image);
+      item.append(details);
     }
     list.append(item);
   }

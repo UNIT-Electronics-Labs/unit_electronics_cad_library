@@ -163,7 +163,7 @@ def asset_link(path: Path, source_root: Path, repository: str, source_ref: str) 
     return {"path": relative.as_posix(), "url": raw_url(repository, source_ref, relative)}
 
 
-def generated_link(path: Path, repository: str, assets_ref: str, **metadata: str) -> dict[str, str]:
+def generated_link(path: Path, repository: str, assets_ref: str, **metadata: object) -> dict[str, object]:
     """Build a link to a file written to the generated-assets branch."""
     result = {"path": path.as_posix(), "url": raw_url(repository, assets_ref, path)}
     result.update(metadata)
@@ -258,7 +258,14 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     pad_colour = "#ff6b00"
     image = Image.new("RGB", (width, height), background)
     draw = ImageDraw.Draw(image)
-    font = ImageFont.load_default()
+    font_size = max(11, min(17, round(scale * 0.38)))
+    try:
+        font = ImageFont.truetype("DejaVuSans-Bold.ttf", font_size)
+    except OSError:
+        try:
+            font = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", font_size)
+        except OSError:
+            font = ImageFont.load_default()
 
     def point(x: float, y: float) -> tuple[float, float]:
         return ((x - min_x + margin_mm) * scale, (max_y - y + margin_mm) * scale)
@@ -326,7 +333,9 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             draw.text((label_x, label_y), label, fill=text_colour, font=font, anchor=label_anchor)
         elif tag == "text":
             x, y = point(eagle_number(item, "x"), eagle_number(item, "y"))
-            draw.text((x, y), item.text or "", fill=text_colour, font=font, anchor="ls")
+            label = item.text or ""
+            if not label.startswith(">"):
+                draw.text((x, y), label, fill=text_colour, font=font, anchor="ls")
 
     target.parent.mkdir(parents=True, exist_ok=True)
     image.save(target, "PNG", optimize=True)
@@ -363,9 +372,9 @@ def extract_lbr_components(
     symbols = {element.get("name", ""): element for element in library.findall("./symbols/symbol")}
     source_relative = source.relative_to(source_root)
     source_asset = asset_link(source, source_root, repository, source_ref)
-    fragment_cache: dict[tuple[str, str], dict[str, str]] = {}
+    fragment_cache: dict[tuple[str, str], dict[str, object]] = {}
 
-    def fragment(kind: str, name: str, element: ET.Element) -> dict[str, str]:
+    def fragment(kind: str, name: str, element: ET.Element) -> dict[str, object]:
         key = (kind, name)
         if key not in fragment_cache:
             identifier = hashlib.sha256(f"{source_relative}:{kind}:{name}".encode()).hexdigest()[:12]
@@ -374,9 +383,16 @@ def extract_lbr_components(
             write_eagle_fragment(root, section_name, element, output / path)
             png_path = Path("png") / kind / f"{safe_file_stem(name)}-{identifier}.png"
             render_eagle_png(element, output / png_path)
+            preview_2d = {
+                "path": png_path.as_posix(),
+                "url": raw_url(repository, assets_ref, png_path),
+                "mime_type": "image/png",
+            }
             fragment_cache[key] = generated_link(
                 path, repository, assets_ref, name=name, source_lbr=source_asset["path"],
-                png_path=png_path.as_posix(), png_url=raw_url(repository, assets_ref, png_path),
+                preview_2d=preview_2d,
+                # These two fields remain for clients that already consume the first PNG release.
+                png_path=preview_2d["path"], png_url=preview_2d["url"],
             )
         return fragment_cache[key]
 
@@ -403,6 +419,10 @@ def extract_lbr_components(
                 "footprints": [fragment("footprints", package_name, packages[package_name])]
                 if package_name in packages else [],
             }
+            component["views_2d"] = {
+                "symbols": [asset["preview_2d"] for asset in component_symbols],
+                "footprints": [asset["preview_2d"] for asset in component["footprints"]],
+            }
             if package_name and package_name not in packages:
                 component["footprint_error"] = f"No se encontró el package Eagle {package_name!r}"
             components.append(component)
@@ -411,12 +431,14 @@ def extract_lbr_components(
     if not components:
         for package_name, package in packages.items():
             identifier = hashlib.sha256(f"{source_relative}:package:{package_name}".encode()).hexdigest()[:12]
+            footprint = fragment("footprints", package_name, package)
             components.append({
                 "id": identifier,
                 "name": package_name,
                 "source_lbr": source_asset,
                 "symbols": [],
-                "footprints": [fragment("footprints", package_name, package)],
+                "footprints": [footprint],
+                "views_2d": {"symbols": [], "footprints": [footprint["preview_2d"]]},
             })
     return components
 
