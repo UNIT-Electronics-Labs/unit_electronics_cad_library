@@ -243,13 +243,15 @@ def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
 
 def render_eagle_png(element: ET.Element, target: Path) -> None:
     """Render an Eagle preview in a schematic/PCB style similar to SnapEDA."""
+    preview_density = 2
+    maximum_preview_size = 960 * preview_density
     min_x, min_y, max_x, max_y = eagle_bounds(element)
     margin_mm = 1.5
     width_mm = max(max_x - min_x + margin_mm * 2, 4)
     height_mm = max(max_y - min_y + margin_mm * 2, 4)
-    scale = min(36, 960 / max(width_mm, height_mm))
-    width = max(160, round(width_mm * scale))
-    height = max(160, round(height_mm * scale))
+    scale = min(36 * preview_density, maximum_preview_size / max(width_mm, height_mm))
+    width = max(160 * preview_density, round(width_mm * scale))
+    height = max(160 * preview_density, round(height_mm * scale))
     is_symbol = element.tag == "symbol"
     background = "#ffffff" if is_symbol else "#050505"
     foreground = "#1f2937" if is_symbol else "#d6d6ae"
@@ -280,18 +282,18 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
         if abs(first[axis] - second[axis]) > 1
     ]
     min_pin_pitch = min(pin_distances, default=60)
-    pin_font_size = max(10, min(36, round(min_pin_pitch * 0.62)))
-    font = bold_font(pin_font_size if is_symbol else max(11, min(17, round(scale * 0.38))))
-    body_font = bold_font(max(12, min(22, round(scale * 0.65))))
-    title_font = bold_font(max(18, min(36, round(scale * 0.95))))
+    pin_font_size = max(10 * preview_density, min(36 * preview_density, round(min_pin_pitch * 0.62)))
+    font = bold_font(pin_font_size if is_symbol else max(11 * preview_density, min(17 * preview_density, round(scale * 0.38))))
+    body_font = bold_font(max(12 * preview_density, min(22 * preview_density, round(scale * 0.65))))
+    title_font = bold_font(max(18 * preview_density, min(36 * preview_density, round(scale * 0.95))))
 
     def box(first: tuple[float, float], second: tuple[float, float]) -> tuple[float, float, float, float]:
         return min(first[0], second[0]), min(first[1], second[1]), max(first[0], second[0]), max(first[1], second[1])
 
     def line_width(item: ET.Element, fallback: float = 0.15) -> int:
         if is_symbol:
-            return max(3, round(eagle_number(item, "width", fallback) * scale * 0.8))
-        return max(1, round(eagle_number(item, "width", fallback) * scale * 0.35))
+            return max(3 * preview_density, round(eagle_number(item, "width", fallback) * scale * 0.8))
+        return max(preview_density, round(eagle_number(item, "width", fallback) * scale * 0.35))
 
     def pin_length(item: ET.Element) -> float:
         return {"point": 0, "short": 2.54, "middle": 5.08, "long": 7.62}.get(item.get("length", "middle"), 5.08)
@@ -338,10 +340,10 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             rotation = item.get("rot", "R0")
             direction = rotation[1:]
             dx, dy = {"0": (length, 0), "90": (0, length), "180": (-length, 0), "270": (0, -length)}.get(direction, (length, 0))
-            draw.line((point(x, y), point(x + dx, y + dy)), fill=foreground, width=max(2, round(scale * 0.11)))
+            draw.line((point(x, y), point(x + dx, y + dy)), fill=foreground, width=max(2 * preview_density, round(scale * 0.11)))
             px, py = point(x, y)
-            connector_length = max(8, round(scale * 0.8))
-            connector_thickness = max(3, round(scale * 0.28))
+            connector_length = max(8 * preview_density, round(scale * 0.8))
+            connector_thickness = max(3 * preview_density, round(scale * 0.28))
             if direction in {"0", "180"}:
                 draw.rectangle((px - connector_length / 2, py - connector_thickness / 2,
                                 px + connector_length / 2, py + connector_thickness / 2), fill=pad_colour)
