@@ -107,6 +107,20 @@ def convert_to_glb(source: Path, target: Path, linear_tolerance: float, angular_
     shape_tool.GetFreeShapes(labels)
     scene = trimesh.Scene()
 
+    def surface_colour(solid: object) -> tuple[int, int, int, int]:
+        """Resolve STEP/XDE surface styles, including per-instance overrides."""
+        for lookup in (colour_tool.GetInstanceColor, colour_tool.GetColor):
+            for colour_type in (
+                XCAFDoc_ColorType.XCAFDoc_ColorSurf,
+                XCAFDoc_ColorType.XCAFDoc_ColorGen,
+                XCAFDoc_ColorType.XCAFDoc_ColorCurv,
+            ):
+                colour = Quantity_Color()
+                if lookup(solid, colour_type, colour):
+                    rgb = colour.Values(Quantity_TOC_RGB)
+                    return tuple(round(max(0, min(1, channel)) * 255) for channel in rgb) + (255,)
+        return (179, 184, 199, 255)
+
     with tempfile.TemporaryDirectory(prefix="component-assets-") as temporary:
         part_number = 0
         for label_index in range(1, labels.Length() + 1):
@@ -123,11 +137,12 @@ def convert_to_glb(source: Path, target: Path, linear_tolerance: float, angular_
                 )
                 mesh = trimesh.load_mesh(stl, force="mesh")
                 if not mesh.is_empty:
-                    colour = Quantity_Color()
-                    has_colour = colour_tool.GetColor(solid, XCAFDoc_ColorType.XCAFDoc_ColorSurf, colour)
-                    rgb = colour.Values(Quantity_TOC_RGB) if has_colour else (0.70, 0.72, 0.78)
-                    rgba = [round(max(0, min(1, channel)) * 255) for channel in rgb] + [255]
-                    mesh.visual.vertex_colors = [rgba] * len(mesh.vertices)
+                    rgba = surface_colour(solid)
+                    mesh.visual.material = trimesh.visual.material.PBRMaterial(
+                        baseColorFactor=rgba,
+                        metallicFactor=0.0,
+                        roughnessFactor=0.72,
+                    )
                     scene.add_geometry(mesh, geom_name=f"part-{part_number}")
                 part_number += 1
                 solids.Next()
@@ -238,18 +253,27 @@ def main() -> int:
             "svg": [asset_link(asset, source_root, arguments.repository, arguments.source_ref)
                     for asset in associated_assets(step, source_files[".svg"], source_root)],
         }
-        try:
-            convert_to_glb(step, output / model_path, arguments.linear_tolerance, arguments.angular_tolerance)
+        source_glb = associated_assets(step, source_files[".glb"], source_root)
+        if source_glb:
             component["model_glb"] = {
-                "path": model_path.as_posix(),
-                "url": raw_url(arguments.repository, arguments.assets_ref, model_path),
-                "linear_tolerance_mm": arguments.linear_tolerance,
-                "angular_tolerance_rad": arguments.angular_tolerance,
+                **asset_link(source_glb[0], source_root, arguments.repository, arguments.source_ref),
+                "source": "supplier_glb",
             }
-            print(f"GLB generado: {relative}")
-        except Exception as error:
-            component["model_error"] = str(error)
-            print(f"No se pudo convertir {relative}: {error}", file=sys.stderr)
+            print(f"GLB original conservado: {source_glb[0].relative_to(source_root)}")
+        else:
+            try:
+                convert_to_glb(step, output / model_path, arguments.linear_tolerance, arguments.angular_tolerance)
+                component["model_glb"] = {
+                    "path": model_path.as_posix(),
+                    "url": raw_url(arguments.repository, arguments.assets_ref, model_path),
+                    "source": "generated_from_step",
+                    "linear_tolerance_mm": arguments.linear_tolerance,
+                    "angular_tolerance_rad": arguments.angular_tolerance,
+                }
+                print(f"GLB generado: {relative}")
+            except Exception as error:
+                component["model_error"] = str(error)
+                print(f"No se pudo convertir {relative}: {error}", file=sys.stderr)
         components.append(component)
 
     manifest = {

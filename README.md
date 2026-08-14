@@ -5,7 +5,7 @@ Este repositorio no publica una web ni modifica los archivos CAD fuente. Al hace
 - Una rama `assets` con `catalog.json`, los modelos `.glb` en color y vistas `.svg` generadas de símbolos y huellas KiCad.
 - Enlaces directos a los archivos originales versionados: STEP, símbolos KiCad (`.kicad_sym`), huellas KiCad (`.kicad_mod`), librerías Eagle (`.lbr`) y SVG que ya existan en el repositorio.
 
-Los archivos fuente no se modifican. El workflow convierte el STEP a GLB para el visor 3D y genera SVG de cada `.kicad_sym` y `.kicad_mod` con `kicad-cli`. Los SVG generados quedan en la rama `assets`.
+Los archivos fuente no se modifican. Cuando existe un GLB suministrado junto al STEP, el catálogo lo conserva para mantener sus materiales y colores originales; de lo contrario, convierte el STEP a GLB con colores de superficie e instancia. El workflow también genera SVG de cada `.kicad_sym` y `.kicad_mod` con `kicad-cli`. Los SVG generados quedan en la rama `assets`.
 
 ## Enlace que debes guardar en tu API
 
