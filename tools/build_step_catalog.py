@@ -234,8 +234,12 @@ def eagle_bounds(element: ET.Element) -> tuple[float, float, float, float]:
         elif tag == "smd":
             add(eagle_number(item, "x"), eagle_number(item, "y"), max(eagle_number(item, "dx"), eagle_number(item, "dy")) / 2)
         elif tag == "rectangle":
-            add(eagle_number(item, "x1"), eagle_number(item, "y1"))
-            add(eagle_number(item, "x2"), eagle_number(item, "y2"))
+            x1, y1 = eagle_number(item, "x1"), eagle_number(item, "y1")
+            x2, y2 = eagle_number(item, "x2"), eagle_number(item, "y2")
+            half_width, half_height = abs(x2 - x1) / 2, abs(y2 - y1) / 2
+            angle = math.radians(eagle_rotation(item))
+            rotated_radius = abs(half_width * math.cos(angle)) + abs(half_height * math.sin(angle))
+            add((x1 + x2) / 2, (y1 + y2) / 2, rotated_radius)
         elif tag in {"vertex", "text"}:
             add(eagle_number(item, "x"), eagle_number(item, "y"))
         elif tag == "pin":
@@ -330,8 +334,12 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
             right_bottom = point(x + radius, y - radius)
             draw.ellipse((left_top, right_bottom), outline=foreground, width=line_width(item))
         elif tag == "rectangle":
-            draw.rectangle(box(point(eagle_number(item, "x1"), eagle_number(item, "y1")),
-                               point(eagle_number(item, "x2"), eagle_number(item, "y2"))), outline=foreground, width=1)
+            x1, y1 = eagle_number(item, "x1"), eagle_number(item, "y1")
+            x2, y2 = eagle_number(item, "x2"), eagle_number(item, "y2")
+            draw.polygon(
+                rotated_rectangle((x1 + x2) / 2, (y1 + y2) / 2, abs(x2 - x1), abs(y2 - y1), eagle_rotation(item)),
+                outline=foreground,
+            )
         elif tag == "polygon":
             vertices = [point(eagle_number(vertex, "x"), eagle_number(vertex, "y")) for vertex in item.findall("vertex")]
             if len(vertices) > 2:
