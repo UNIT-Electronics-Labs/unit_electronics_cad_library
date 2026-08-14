@@ -246,13 +246,16 @@ def render_eagle_png(element: ET.Element, target: Path) -> None:
     preview_density = 2
     maximum_preview_size = 960 * preview_density
     min_x, min_y, max_x, max_y = eagle_bounds(element)
-    margin_mm = 1.5
+    is_symbol = element.tag == "symbol"
+    longest_pin_name = max((len(item.get("name", "")) for item in element.findall("pin")), default=0)
+    # Pin labels extend beyond the electrical connection. Reserve enough
+    # physical space for the longest label so no text is clipped at an edge.
+    margin_mm = max(1.5, min(24, longest_pin_name * 1.1)) if is_symbol else 1.5
     width_mm = max(max_x - min_x + margin_mm * 2, 4)
     height_mm = max(max_y - min_y + margin_mm * 2, 4)
     scale = min(36 * preview_density, maximum_preview_size / max(width_mm, height_mm))
     width = max(160 * preview_density, round(width_mm * scale))
     height = max(160 * preview_density, round(height_mm * scale))
-    is_symbol = element.tag == "symbol"
     background = "#ffffff" if is_symbol else "#050505"
     foreground = "#1f2937" if is_symbol else "#d6d6ae"
     text_colour = "#374151" if is_symbol else "#ececcf"
